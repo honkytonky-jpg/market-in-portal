@@ -12,275 +12,71 @@
         .sp-webpart { position: relative; margin-bottom: 24px; }
         .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
         .line-clamp-1 { display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
-
         .modal { opacity: 0; visibility: hidden; transition: all 0.25s ease-in-out; }
         .modal.active { opacity: 1; visibility: visible; }
         .modal-content { transform: translateY(8px); transition: all 0.25s ease-in-out; }
         .modal.active .modal-content { transform: translateY(0); }
-
-        .tag {
-            display: inline-block;
-            padding: 2px 6px;
-            border-radius: 9999px;
-            font-size: 0.7rem;
-            background-color: #f1f5f9;
-            color: #64748b;
-            white-space: nowrap;
-        }
-
+        .tag { display: inline-block; padding: 2px 6px; border-radius: 9999px; font-size: 0.7rem; background-color: #f1f5f9; color: #64748b; white-space: nowrap; }
         .nav-card:hover { transform: translateY(-2px); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); }
         .checkbox-wrapper input:checked + div { background-color: #1e3a8a; border-color: #1e3a8a; }
         .checkbox-wrapper input:checked + div svg { display: block; }
         .page { display: none; }
         .active { display: block; }
-
-        .pill-label {
-            display: inline-flex;
-            align-items: center;
-            font-size: 0.7rem;
-            padding: 2px 8px;
-            border-radius: 9999px;
-            background-color: #fff7ed;
-            color: #9a3412;
-            font-weight: 600;
-            margin-right: 4px;
-        }
+        .pill-label { display: inline-flex; align-items: center; font-size: 0.7rem; padding: 2px 8px; border-radius: 9999px; background-color: #fff7ed; color: #9a3412; font-weight: 600; margin-right: 4px; }
         .pill-label span { margin-left: 4px; }
         .hidden-by-limit { display: none; }
-
         .sp-shadow { box-shadow: 0 1.6px 3.6px 0 rgba(0,0,0,0.132), 0 0.3px 0.9px 0 rgba(0,0,0,0.108); }
-        .sp-card-hover:hover { box-shadow: 0 3.2px 7.2px 0 rgba(0,0,0,0.132), 0 0.6px 1.8px 0 rgba(0,0,0,0.108); transform: translateY(-2px); transition: all 0.2s ease; }
-        .sp-theme-color { color: #334155; }
-        .sp-bg-theme { background-color: #334155; }
-        .sp-quote-border { border-left: 4px solid #334155; }
         .info-label { font-size: 0.75rem; color: #64748b; margin-bottom: 0.25rem; display: block; font-weight: 500; }
         .info-value { font-size: 0.9rem; color: #1e293b; font-weight: 600; }
-
-        /* ========== AI チャット スタイル ========== */
-        #aiChatSection {
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        #aiChatSection::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: radial-gradient(circle at 20% 50%, rgba(99,102,241,0.15) 0%, transparent 50%),
-                              radial-gradient(circle at 80% 20%, rgba(59,130,246,0.15) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .chat-window {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            height: 420px;
-            overflow-y: auto;
-            padding: 16px;
-            scroll-behavior: smooth;
-        }
+        #aiChatSection { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%); position: relative; overflow: hidden; }
+        #aiChatSection::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 20% 50%, rgba(99,102,241,0.15) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(59,130,246,0.15) 0%, transparent 50%); pointer-events: none; }
+        .chat-window { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 16px; height: 420px; overflow-y: auto; padding: 16px; scroll-behavior: smooth; }
         .chat-window::-webkit-scrollbar { width: 4px; }
         .chat-window::-webkit-scrollbar-track { background: transparent; }
         .chat-window::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 2px; }
-
-        /* AIメッセージ */
-        .msg-ai {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            margin-bottom: 16px;
-            animation: fadeInUp 0.3s ease;
-        }
-        .msg-ai .avatar {
-            width: 32px; height: 32px;
-            background: linear-gradient(135deg, #6366f1, #3b82f6);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 14px; color: white; flex-shrink: 0;
-        }
-        .msg-ai .bubble {
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.12);
-            color: #e2e8f0;
-            padding: 10px 14px;
-            border-radius: 4px 14px 14px 14px;
-            font-size: 13px;
-            line-height: 1.6;
-            max-width: 85%;
-        }
-
-        /* ユーザーメッセージ */
-        .msg-user {
-            display: flex;
-            justify-content: flex-end;
-            margin-bottom: 16px;
-            animation: fadeInUp 0.3s ease;
-        }
-        .msg-user .bubble {
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            color: white;
-            padding: 10px 14px;
-            border-radius: 14px 4px 14px 14px;
-            font-size: 13px;
-            line-height: 1.6;
-            max-width: 75%;
-        }
-
-        /* タイピングアニメーション */
-        .typing-indicator {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            margin-bottom: 16px;
-        }
-        .typing-indicator .avatar {
-            width: 32px; height: 32px;
-            background: linear-gradient(135deg, #6366f1, #3b82f6);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 14px; color: white; flex-shrink: 0;
-        }
-        .typing-dots {
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.12);
-            padding: 12px 16px;
-            border-radius: 4px 14px 14px 14px;
-            display: flex; gap: 4px; align-items: center;
-        }
-        .typing-dots span {
-            width: 6px; height: 6px;
-            background: #94a3b8;
-            border-radius: 50%;
-            display: inline-block;
-            animation: typingBounce 1.2s infinite;
-        }
+        .msg-ai { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 16px; animation: fadeInUp 0.3s ease; }
+        .msg-ai .avatar { width: 32px; height: 32px; background: linear-gradient(135deg, #6366f1, #3b82f6); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; color: white; flex-shrink: 0; }
+        .msg-ai .bubble { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: #e2e8f0; padding: 10px 14px; border-radius: 4px 14px 14px 14px; font-size: 13px; line-height: 1.6; max-width: 85%; }
+        .msg-user { display: flex; justify-content: flex-end; margin-bottom: 16px; animation: fadeInUp 0.3s ease; }
+        .msg-user .bubble { background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: white; padding: 10px 14px; border-radius: 14px 4px 14px 14px; font-size: 13px; line-height: 1.6; max-width: 75%; }
+        .typing-indicator { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 16px; }
+        .typing-indicator .avatar { width: 32px; height: 32px; background: linear-gradient(135deg, #6366f1, #3b82f6); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; color: white; flex-shrink: 0; }
+        .typing-dots { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); padding: 12px 16px; border-radius: 4px 14px 14px 14px; display: flex; gap: 4px; align-items: center; }
+        .typing-dots span { width: 6px; height: 6px; background: #94a3b8; border-radius: 50%; display: inline-block; animation: typingBounce 1.2s infinite; }
         .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
         .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
-
-        @keyframes typingBounce {
-            0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
-            30% { transform: translateY(-6px); opacity: 1; }
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* 入力エリア */
-        .chat-input-area {
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.12);
-            border-radius: 12px;
-            display: flex;
-            align-items: flex-end;
-            gap: 8px;
-            padding: 10px 12px;
-            transition: border-color 0.2s;
-        }
-        .chat-input-area:focus-within {
-            border-color: rgba(99,102,241,0.6);
-            background: rgba(255,255,255,0.08);
-        }
-        #chatInput {
-            flex: 1;
-            background: transparent;
-            border: none;
-            outline: none;
-            color: #e2e8f0;
-            font-size: 13px;
-            line-height: 1.5;
-            resize: none;
-            min-height: 20px;
-            max-height: 100px;
-            font-family: inherit;
-        }
+        @keyframes typingBounce { 0%, 60%, 100% { transform: translateY(0); opacity: 0.5; } 30% { transform: translateY(-6px); opacity: 1; } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        .chat-input-area { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; display: flex; align-items: flex-end; gap: 8px; padding: 10px 12px; transition: border-color 0.2s; }
+        .chat-input-area:focus-within { border-color: rgba(99,102,241,0.6); background: rgba(255,255,255,0.08); }
+        #chatInput { flex: 1; background: transparent; border: none; outline: none; color: #e2e8f0; font-size: 13px; line-height: 1.5; resize: none; min-height: 20px; max-height: 100px; font-family: inherit; }
         #chatInput::placeholder { color: rgba(148,163,184,0.6); }
-        #chatSendBtn {
-            width: 36px; height: 36px;
-            background: linear-gradient(135deg, #6366f1, #3b82f6);
-            border: none;
-            border-radius: 8px;
-            color: white;
-            cursor: pointer;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 14px;
-            flex-shrink: 0;
-            transition: opacity 0.2s, transform 0.1s;
-        }
+        #chatSendBtn { width: 36px; height: 36px; background: linear-gradient(135deg, #6366f1, #3b82f6); border: none; border-radius: 8px; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; transition: opacity 0.2s, transform 0.1s; }
         #chatSendBtn:hover { opacity: 0.9; }
         #chatSendBtn:active { transform: scale(0.95); }
         #chatSendBtn:disabled { opacity: 0.4; cursor: not-allowed; }
-
-        /* クイック質問ボタン */
-        .quick-btn {
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.12);
-            color: #94a3b8;
-            font-size: 11px;
-            padding: 5px 10px;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.2s;
-            white-space: nowrap;
-        }
-        .quick-btn:hover {
-            background: rgba(99,102,241,0.2);
-            border-color: rgba(99,102,241,0.4);
-            color: #c7d2fe;
-        }
-
-        /* APIキー入力エリア */
-        #apiKeyArea {
-            background: rgba(255,193,7,0.08);
-            border: 1px solid rgba(255,193,7,0.25);
-            border-radius: 10px;
-            padding: 10px 14px;
-        }
-        #apiKeyInput {
-            background: rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.15);
-            border-radius: 6px;
-            color: #e2e8f0;
-            font-size: 12px;
-            padding: 6px 10px;
-            outline: none;
-            width: 100%;
-            font-family: monospace;
-        }
-        #apiKeyInput:focus { border-color: rgba(99,102,241,0.5); }
-        #apiKeyInput::placeholder { color: rgba(148,163,184,0.5); }
+        .quick-btn { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: #94a3b8; font-size: 11px; padding: 5px 10px; border-radius: 20px; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+        .quick-btn:hover { background: rgba(99,102,241,0.2); border-color: rgba(99,102,241,0.4); color: #c7d2fe; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col bg-[#f8fafc]">
 
-    <!-- 共通ヘッダー -->
+    <!-- ヘッダー -->
     <div class="bg-[#1e3a8a] text-white shadow-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-3 hover:opacity-80 transition"
-               onclick="showPage('topPage'); return false;">
-                <div class="bg-white/10 w-8 h-8 flex items-center justify-center rounded">
-                    <i class="fa-solid fa-layer-group text-sm"></i>
-                </div>
+            <a href="#" class="flex items-center gap-3 hover:opacity-80 transition" onclick="showPage('topPage'); return false;">
+                <div class="bg-white/10 w-8 h-8 flex items-center justify-center rounded"><i class="fa-solid fa-layer-group text-sm"></i></div>
                 <span class="font-bold tracking-wide text-lg">MARKET-IN Portal</span>
             </a>
-            <!-- ヘッダーAIチャット入力欄 -->
             <div class="hidden md:flex items-center gap-2 flex-1 max-w-xl ml-8">
-                <div class="flex items-center gap-2 bg-white/10 hover:bg-white/15 border border-white/20 rounded-full px-3 py-1.5 flex-1 transition"
-                     style="min-width:0">
+                <div class="flex items-center gap-2 bg-white/10 hover:bg-white/15 border border-white/20 rounded-full px-3 py-1.5 flex-1 transition" style="min-width:0">
                     <div class="w-5 h-5 rounded-full bg-gradient-to-br from-indigo-400 to-blue-400 flex items-center justify-center flex-shrink-0">
                         <i class="fa-solid fa-robot text-white" style="font-size:9px"></i>
                     </div>
-                    <input id="headerChatInput"
-                           type="text"
-                           placeholder="AIアシスタントに質問する..."
-                           class="bg-transparent border-none outline-none text-white text-xs flex-1 min-w-0"
-                           style="color:white;"
-                           onkeydown="handleHeaderChatKeydown(event)"
-                           onfocus="scrollToAIChat()">
-                    <button onclick="sendHeaderChat()"
-                            class="flex-shrink-0 text-slate-300 hover:text-white transition">
+                    <input id="headerChatInput" type="text" placeholder="AIアシスタントに質問する..."
+                           class="bg-transparent border-none outline-none text-white text-xs flex-1 min-w-0" style="color:white;"
+                           onkeydown="handleHeaderChatKeydown(event)" onfocus="scrollToAIChat()">
+                    <button onclick="sendHeaderChat()" class="flex-shrink-0 text-slate-300 hover:text-white transition">
                         <i class="fa-solid fa-paper-plane" style="font-size:11px"></i>
                     </button>
                 </div>
@@ -292,8 +88,6 @@
     <!-- TOPページ -->
     <div id="topPage" class="page active">
         <div class="max-w-7xl mx-auto px-6 py-8 w-full">
-
-            <!-- Hero + Action Menu -->
             <div class="flex flex-col lg:flex-row gap-8 mb-4">
                 <div class="lg:w-[70%] sp-webpart">
                     <div class="relative rounded-xl overflow-hidden shadow-sm h-[420px]">
@@ -312,16 +106,9 @@
                                 <div class="absolute inset-0 bg-[#020617]/45 mix-blend-multiply"></div>
                                 <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
                                 <div class="absolute bottom-0 left-0 p-8 text-white max-w-3xl">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <span class="text-[11px] font-bold text-orange-900 bg-orange-100 px-2 py-0.5 rounded-full">提案を貰いたい側 (Needs)</span>
-                                        <span class="text-[10px] text-slate-200">3時間前</span>
-                                    </div>
+                                    <div class="flex items-center gap-2 mb-2"><span class="text-[11px] font-bold text-orange-900 bg-orange-100 px-2 py-0.5 rounded-full">提案を貰いたい側 (Needs)</span></div>
                                     <h2 class="text-2xl font-bold mb-2 leading-tight">【出向者紹介】バロー現場からつなぐ、伊藤忠グループ横連携</h2>
-                                    <p class="text-slate-200 text-sm opacity-90 mb-3 line-clamp-2">バローHD商品部で現場と伊藤忠グループのソリューションをつなぐ「ハブ」として出向中。</p>
-                                    <div class="flex flex-wrap gap-2 text-[11px]">
-                                        <span class="bg-white/10 px-2 py-0.5 rounded-full">#小売DX</span>
-                                        <span class="bg-white/10 px-2 py-0.5 rounded-full">#グループ連携</span>
-                                    </div>
+                                    <div class="flex flex-wrap gap-2 text-[11px]"><span class="bg-white/10 px-2 py-0.5 rounded-full">#小売DX</span><span class="bg-white/10 px-2 py-0.5 rounded-full">#グループ連携</span></div>
                                 </div>
                             </div>
                             <div class="hero-slide-full absolute inset-0 hidden cursor-pointer" onclick="showPage('storyFukumotoPage');">
@@ -329,16 +116,9 @@
                                 <div class="absolute inset-0 bg-[#020617]/50 mix-blend-multiply"></div>
                                 <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
                                 <div class="absolute bottom-0 left-0 p-8 text-white max-w-3xl">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <span class="text-[11px] font-bold text-orange-900 bg-orange-100 px-2 py-0.5 rounded-full">提案を貰いたい側 (Needs)</span>
-                                        <span class="text-[10px] text-slate-200">昨日</span>
-                                    </div>
+                                    <div class="flex items-center gap-2 mb-2"><span class="text-[11px] font-bold text-orange-900 bg-orange-100 px-2 py-0.5 rounded-full">提案を貰いたい側 (Needs)</span></div>
                                     <h2 class="text-2xl font-bold mb-2 leading-tight">「小売の悩みは、伊藤忠の商売チャンス」</h2>
-                                    <p class="text-slate-200 text-sm opacity-90 mb-3 line-clamp-2">ヤオコー・サミット・デリシア各社との現場連携・成功事例を食品流通第一課が紹介。</p>
-                                    <div class="flex flex-wrap gap-2 text-[11px]">
-                                        <span class="bg-white/10 px-2 py-0.5 rounded-full">#現場ニーズ</span>
-                                        <span class="bg-white/10 px-2 py-0.5 rounded-full">#流通DX</span>
-                                    </div>
+                                    <div class="flex flex-wrap gap-2 text-[11px]"><span class="bg-white/10 px-2 py-0.5 rounded-full">#現場ニーズ</span></div>
                                 </div>
                             </div>
                             <div class="hero-slide-full absolute inset-0 hidden cursor-pointer" onclick="showPage('storyPowerPage');">
@@ -346,16 +126,9 @@
                                 <div class="absolute inset-0 bg-[#0b1120]/50 mix-blend-multiply"></div>
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent opacity-90"></div>
                                 <div class="absolute bottom-0 left-0 p-8 text-white max-w-3xl">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <span class="text-[11px] font-bold text-blue-900 bg-blue-100 px-2 py-0.5 rounded-full">提案したい側 (Seeds)</span>
-                                        <span class="text-[10px] text-slate-200">4時間前</span>
-                                    </div>
+                                    <div class="flex items-center gap-2 mb-2"><span class="text-[11px] font-bold text-blue-900 bg-blue-100 px-2 py-0.5 rounded-full">提案したい側 (Seeds)</span></div>
                                     <h2 class="text-2xl font-bold mb-2 leading-tight">他部署連携による電力提案の取り組みについて</h2>
-                                    <p class="text-slate-200 text-sm opacity-90 mb-3 line-clamp-2">食品流通部との連携でデリシア・ウオロクへの電力提案を実現。</p>
-                                    <div class="flex flex-wrap gap-2 text-[11px]">
-                                        <span class="bg-white/10 px-2 py-0.5 rounded-full">#社内連携</span>
-                                        <span class="bg-white/10 px-2 py-0.5 rounded-full">#再エネ</span>
-                                    </div>
+                                    <div class="flex flex-wrap gap-2 text-[11px]"><span class="bg-white/10 px-2 py-0.5 rounded-full">#社内連携</span></div>
                                 </div>
                             </div>
                         </div>
@@ -373,49 +146,30 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="lg:w-[30%] flex flex-col gap-4">
                     <div class="sp-webpart bg-white px-4 py-3 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-center">
                         <h3 class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-3">Select Action</h3>
                         <div class="space-y-2.5">
                             <div class="rounded-lg border border-slate-100 bg-slate-50 px-2.5 py-2.5 hover:border-slate-200 transition">
                                 <button class="w-full flex items-center text-left group mb-1.5" onclick="showPage('postPage');">
-                                    <div class="w-10 h-10 rounded-lg bg-slate-800 text-white flex items-center justify-center shadow-sm shrink-0 mr-3 text-lg group-hover:bg-slate-700 transition">
-                                        <i class="fa-solid fa-pen-nib"></i>
-                                    </div>
-                                    <div>
-                                        <span class="block text-[13px] font-bold text-slate-700 group-hover:text-slate-900">投稿する</span>
-                                        <span class="block text-[10px] text-slate-500">案件を作成・公開する</span>
-                                    </div>
+                                    <div class="w-10 h-10 rounded-lg bg-slate-800 text-white flex items-center justify-center shadow-sm shrink-0 mr-3 text-lg group-hover:bg-slate-700 transition"><i class="fa-solid fa-pen-nib"></i></div>
+                                    <div><span class="block text-[13px] font-bold text-slate-700 group-hover:text-slate-900">投稿する</span><span class="block text-[10px] text-slate-500">案件を作成・公開する</span></div>
                                 </button>
-                                <a href="#" class="block text-center text-[10px] font-bold text-slate-500 bg-white border border-slate-200 rounded py-1 hover:text-blue-600 hover:border-blue-300 transition">
-                                    <i class="fa-regular fa-file-lines mr-1"></i>投稿ガイドラインを見る
-                                </a>
                             </div>
                             <button class="nav-card w-full flex items-center px-2.5 py-2.5 rounded-lg border border-slate-100 bg-teal-50 hover:bg-teal-100 hover:border-teal-200 transition group text-left" onclick="showPage('marketPage');">
-                                <div class="w-10 h-10 rounded-lg bg-white text-teal-600 flex items-center justify-center shadow-sm shrink-0 mr-3 text-lg">
-                                    <i class="fa-solid fa-box-open"></i>
-                                </div>
-                                <div>
-                                    <span class="block text-[13px] font-bold text-slate-700 group-hover:text-teal-700">社員の声を聞く</span>
-                                    <span class="block text-[10px] text-slate-500">マーケットインBOXへ</span>
-                                </div>
+                                <div class="w-10 h-10 rounded-lg bg-white text-teal-600 flex items-center justify-center shadow-sm shrink-0 mr-3 text-lg"><i class="fa-solid fa-box-open"></i></div>
+                                <div><span class="block text-[13px] font-bold text-slate-700 group-hover:text-teal-700">社員の声を聞く</span><span class="block text-[10px] text-slate-500">マーケットインBOXへ</span></div>
                             </button>
                         </div>
                     </div>
-
                     <div class="sp-webpart bg-white px-4 py-3 rounded-xl border border-slate-200 shadow-sm">
-                        <div class="flex items-center gap-2 mb-2">
-                            <h3 class="text-[11px] font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1">
-                                <i class="fa-solid fa-hashtag text-slate-400"></i> Trending Tags
-                            </h3>
-                        </div>
+                        <div class="flex items-center gap-2 mb-2"><h3 class="text-[11px] font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1"><i class="fa-solid fa-hashtag text-slate-400"></i> Trending Tags</h3></div>
                         <div id="trendingTagsContainer" class="flex flex-wrap gap-1.5 text-xs"></div>
                     </div>
                 </div>
             </div>
 
-            <!-- 非表示フィルター入力（JS互換用・画面には表示しない） -->
+            <!-- 非表示フィルター -->
             <input id="filterKeyword" type="hidden">
             <input type="hidden" id="filterNeeds" value="true">
             <input type="hidden" id="filterSeeds" value="true">
@@ -425,9 +179,7 @@
             <div class="sp-webpart mt-2">
                 <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4 border-b border-slate-200 pb-2 gap-3">
                     <div>
-                        <h2 class="text-xl font-bold text-slate-800 flex items-center gap-2">
-                            <i class="fa-solid fa-people-arrows text-indigo-600"></i> Needs &amp; Seeds ボード
-                        </h2>
+                        <h2 class="text-xl font-bold text-slate-800 flex items-center gap-2"><i class="fa-solid fa-people-arrows text-indigo-600"></i> Needs &amp; Seeds ボード</h2>
                         <p class="text-xs text-slate-500 mt-1">左：顧客側の課題（Needs）／右：伊藤忠グループのソリューション（Seeds）</p>
                     </div>
                     <div class="flex flex-wrap gap-2">
@@ -438,30 +190,22 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <div class="flex items-center justify-between mb-2">
-                            <span class="inline-flex items-center gap-1 bg-orange-100 text-orange-700 text-[11px] font-semibold px-2.5 py-1 rounded-full">
-                                <i class="fa-solid fa-circle-exclamation text-[10px]"></i> Needs（課題）
-                            </span>
+                            <span class="inline-flex items-center gap-1 bg-orange-100 text-orange-700 text-[11px] font-semibold px-2.5 py-1 rounded-full"><i class="fa-solid fa-circle-exclamation text-[10px]"></i> Needs（課題）</span>
                             <span class="text-[11px] text-slate-400">顧客の「困りごと」側</span>
                         </div>
                         <div id="needsContainer" class="grid grid-cols-1 gap-3"></div>
                         <div class="mt-3 flex justify-center">
-                            <button id="showMoreNeeds" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold border border-orange-300 text-orange-700 bg-orange-50 hover:bg-orange-100">
-                                <i class="fa-solid fa-angles-down text-[10px]"></i> Needsをもっと表示する
-                            </button>
+                            <button id="showMoreNeeds" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold border border-orange-300 text-orange-700 bg-orange-50 hover:bg-orange-100"><i class="fa-solid fa-angles-down text-[10px]"></i> Needsをもっと表示する</button>
                         </div>
                     </div>
                     <div>
                         <div class="flex items-center justify-between mb-2">
-                            <span class="inline-flex items-center gap-1 bg-blue-100 text-blue-700 text-[11px] font-semibold px-2.5 py-1 rounded-full">
-                                <i class="fa-solid fa-seedling text-[10px]"></i> Seeds（提供できる価値）
-                            </span>
+                            <span class="inline-flex items-center gap-1 bg-blue-100 text-blue-700 text-[11px] font-semibold px-2.5 py-1 rounded-full"><i class="fa-solid fa-seedling text-[10px]"></i> Seeds（提供できる価値）</span>
                             <span class="text-[11px] text-slate-400">伊藤忠グループの「打ち手」側</span>
                         </div>
                         <div id="seedsContainer" class="grid grid-cols-1 gap-3"></div>
                         <div class="mt-3 flex justify-center">
-                            <button id="showMoreSeeds" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold border border-blue-300 text-blue-700 bg-blue-50 hover:bg-blue-100">
-                                <i class="fa-solid fa-angles-down text-[10px]"></i> Seedsをもっと表示する
-                            </button>
+                            <button id="showMoreSeeds" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold border border-blue-300 text-blue-700 bg-blue-50 hover:bg-blue-100"><i class="fa-solid fa-angles-down text-[10px]"></i> Seedsをもっと表示する</button>
                         </div>
                     </div>
                 </div>
@@ -470,17 +214,12 @@
             <!-- STORIES -->
             <div class="sp-webpart bg-slate-100 rounded-xl p-6 mt-6">
                 <div class="flex items-end justify-between mb-4 border-b border-slate-300 pb-2">
-                    <div>
-                        <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2"><i class="fa-regular fa-newspaper text-slate-500"></i> STORIES</h3>
-                        <p class="text-xs text-slate-500 mt-1">最新のSTORIESを3件まで表示しています。</p>
-                    </div>
+                    <div><h3 class="text-lg font-bold text-slate-800 flex items-center gap-2"><i class="fa-regular fa-newspaper text-slate-500"></i> STORIES</h3></div>
                     <a href="#" class="text-sm text-slate-600 hover:text-slate-900" onclick="showPage('storiesListPage'); return false;">STORIES一覧 &gt;</a>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <a href="#" onclick="showPage('storyFukumotoPage'); return false;" class="flex flex-col bg-white rounded-lg shadow-sm hover:shadow-md transition overflow-hidden group">
-                        <div class="h-28 bg-slate-200 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1581546508260-4c8b1a53c0b0?auto=format&fit=crop&w=400" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        </div>
+                        <div class="h-28 bg-slate-200 overflow-hidden"><img src="https://images.unsplash.com/photo-1581546508260-4c8b1a53c0b0?auto=format&fit=crop&w=400" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>
                         <div class="p-3 flex-1 flex flex-col">
                             <div class="text-[10px] text-slate-400 mb-1">2026.02.01 | Needs STORY</div>
                             <h4 class="font-bold text-slate-800 text-sm mb-1 leading-snug group-hover:text-[#1e3a8a] group-hover:underline">ヤオコーで学んだ「危機感」と「打ち手」</h4>
@@ -488,118 +227,66 @@
                         </div>
                     </a>
                     <a href="#" onclick="showPage('storyInariPage'); return false;" class="flex flex-col bg-white rounded-lg shadow-sm hover:shadow-md transition overflow-hidden group">
-                        <div class="h-28 bg-slate-200 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1585386959984-a4155223f3f8?auto=format&fit=crop&w=400" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        </div>
+                        <div class="h-28 bg-slate-200 overflow-hidden"><img src="https://images.unsplash.com/photo-1585386959984-a4155223f3f8?auto=format&fit=crop&w=400" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>
                         <div class="p-3 flex-1 flex flex-col">
                             <div class="text-[10px] text-slate-400 mb-1">2026.02.01 | Needs STORY</div>
                             <h4 class="font-bold text-slate-800 text-sm mb-1 leading-snug group-hover:text-[#1e3a8a] group-hover:underline">【出向者紹介】バロー現場からつなぐ、伊藤忠グループ横連携</h4>
-                            <div class="mt-auto flex flex-wrap gap-1"><span class="tag">#バロー</span><span class="tag">#グループ連携</span></div>
+                            <div class="mt-auto flex flex-wrap gap-1"><span class="tag">#バロー</span></div>
                         </div>
                     </a>
                     <a href="#" onclick="showPage('storyAkimotoPage'); return false;" class="flex flex-col bg-white rounded-lg shadow-sm hover:shadow-md transition overflow-hidden group">
-                        <div class="h-28 bg-slate-200 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=400" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        </div>
+                        <div class="h-28 bg-slate-200 overflow-hidden"><img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=400" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>
                         <div class="p-3 flex-1 flex flex-col">
                             <div class="text-[10px] text-slate-400 mb-1">2026.02.01 | Needs STORY</div>
                             <h4 class="font-bold text-slate-800 text-sm mb-1 leading-snug group-hover:text-[#1e3a8a] group-hover:underline">ヤオコーの「中食づくりの現場」から、伊藤忠グループへの橋渡し</h4>
-                            <div class="mt-auto flex flex-wrap gap-1"><span class="tag">#中食</span><span class="tag">#仕組み化</span></div>
+                            <div class="mt-auto flex flex-wrap gap-1"><span class="tag">#中食</span></div>
                         </div>
                     </a>
                 </div>
             </div>
 
-            <!-- ========== AI アシスタント セクション（新規追加） ========== -->
+            <!-- AI アシスタント -->
             <div id="aiChatSection" class="sp-webpart rounded-2xl p-6 md:p-8 mt-6">
                 <div class="relative z-10">
-                    <!-- ヘッダー -->
                     <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
                         <div>
                             <div class="flex items-center gap-3 mb-2">
-                                <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-blue-500 flex items-center justify-center shadow-lg">
-                                    <i class="fa-solid fa-robot text-white text-sm"></i>
-                                </div>
-                                <div>
-                                    <h2 class="text-white font-bold text-lg leading-none">AI アシスタント</h2>
-                                    <p class="text-slate-400 text-[11px] mt-0.5">Powered by ChatGPT</p>
-                                </div>
-                                <span class="flex items-center gap-1.5 bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[10px] font-semibold px-2.5 py-1 rounded-full">
-                                    <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></span> ONLINE
-                                </span>
+                                <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-blue-500 flex items-center justify-center shadow-lg"><i class="fa-solid fa-robot text-white text-sm"></i></div>
+                                <div><h2 class="text-white font-bold text-lg leading-none">AI アシスタント</h2><p class="text-slate-400 text-[11px] mt-0.5">Powered by ChatGPT</p></div>
+                                <span class="flex items-center gap-1.5 bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[10px] font-semibold px-2.5 py-1 rounded-full"><span class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></span> ONLINE</span>
                             </div>
-                            <p class="text-slate-400 text-xs leading-relaxed max-w-lg">
-                                このポータルの使い方・Needs/Seedsの探し方・業務提案の組み立て方など、<br>
-                                何でも気軽に質問してください。
-                            </p>
+                            <p class="text-slate-400 text-xs leading-relaxed max-w-lg">このポータルの使い方・Needs/Seedsの探し方・業務提案の組み立て方など、何でも気軽に質問してください。</p>
                         </div>
-
-                        <!-- Vercel稼働中バッジ -->
-                        <div class="flex flex-col gap-2 justify-center">
-                            <div class="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 rounded-lg px-4 py-3">
-                                <i class="fa-solid fa-circle-check text-emerald-400 text-sm"></i>
-                                <div>
-                                    <p class="text-emerald-300 text-xs font-semibold">AI稼働中</p>
-                                    <p class="text-slate-400 text-[10px] mt-0.5">Vercel経由でChatGPTに接続済み</p>
-                                </div>
-                            </div>
+                        <div class="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 rounded-lg px-4 py-3">
+                            <i class="fa-solid fa-circle-check text-emerald-400 text-sm"></i>
+                            <div><p class="text-emerald-300 text-xs font-semibold">AI稼働中</p><p class="text-slate-400 text-[10px] mt-0.5">Vercel経由でChatGPTに接続済み</p></div>
                         </div>
                     </div>
-
-                    <!-- チャットウィンドウ -->
                     <div class="chat-window mb-3" id="chatWindow">
-                        <!-- 初期AIメッセージ -->
                         <div class="msg-ai">
                             <div class="avatar"><i class="fa-solid fa-robot text-xs"></i></div>
-                            <div class="bubble">
-                                こんにちは！MARKET-IN Portalのアシスタントです 👋<br><br>
-                                以下のことをお手伝いできます：<br>
-                                <span class="text-blue-300">・</span> ポータルの使い方・各機能の説明<br>
-                                <span class="text-blue-300">・</span> Needs / Seeds の探し方・絞り込み方<br>
-                                <span class="text-blue-300">・</span> 投稿・提案のアドバイス<br>
-                                <span class="text-blue-300">・</span> 業務上の質問への回答<br><br>
-                                何でも気軽に質問してください！
-                            </div>
+                            <div class="bubble">こんにちは！MARKET-IN Portalのアシスタントです 👋<br><br>何でも気軽に質問してください！</div>
                         </div>
                     </div>
-
-                    <!-- クイック質問 -->
-                    <div class="flex flex-wrap gap-2 mb-3" id="quickQuestions">
+                    <div class="flex flex-wrap gap-2 mb-3">
                         <button class="quick-btn" onclick="sendQuickQuestion(this)">Needsの投稿方法は？</button>
                         <button class="quick-btn" onclick="sendQuickQuestion(this)">Seedsとは何ですか？</button>
                         <button class="quick-btn" onclick="sendQuickQuestion(this)">バロー関連のNeedsを教えて</button>
                         <button class="quick-btn" onclick="sendQuickQuestion(this)">提案書の書き方のコツは？</button>
-                        <button class="quick-btn" onclick="sendQuickQuestion(this)">社内連携の成功事例は？</button>
                     </div>
-
-                    <!-- 入力エリア -->
                     <div class="chat-input-area">
-                        <textarea id="chatInput" rows="1" placeholder="質問を入力してください... (Shift+Enterで改行)"
-                                  onkeydown="handleChatKeydown(event)"
-                                  oninput="autoResizeTextarea(this)"></textarea>
-                        <button id="chatSendBtn" onclick="sendChatMessage()" title="送信">
-                            <i class="fa-solid fa-paper-plane text-xs"></i>
-                        </button>
+                        <textarea id="chatInput" rows="1" placeholder="質問を入力してください... (Shift+Enterで改行)" onkeydown="handleChatKeydown(event)" oninput="autoResizeTextarea(this)"></textarea>
+                        <button id="chatSendBtn" onclick="sendChatMessage()" title="送信"><i class="fa-solid fa-paper-plane text-xs"></i></button>
                     </div>
-                    <p class="text-slate-600 text-[10px] mt-2 text-center">
-                        AIの回答は参考情報です。重要な判断は必ず担当者に確認してください。
-                    </p>
+                    <p class="text-slate-600 text-[10px] mt-2 text-center">AIの回答は参考情報です。重要な判断は必ず担当者に確認してください。</p>
                 </div>
             </div>
 
             <!-- About -->
-            <div class="sp-webpart bg-white rounded-xl shadow-sm border border-slate-200 p-8 mt-8 flex flex-col items-center">
-                <div class="w-full">
-                    <div class="flex items-center gap-2 mb-3">
-                        <div class="w-8 h-1 bg-[#1e3a8a]"></div>
-                        <span class="text-[#1e3a8a] font-bold tracking-widest text-xs uppercase">About This Portal</span>
-                    </div>
-                    <h2 class="text-2xl font-bold text-slate-800 mb-4 leading-tight">現場の「気づき」と、全社の「ソリューション」。<br>交われば、提案はもっと強くなる。</h2>
-                    <div class="text-slate-600 text-sm leading-relaxed space-y-4">
-                        <p>顧客と日々向き合う現場では、仕入れや商品だけでは応えきれないような、より上流の課題が聞こえてくることが増えています。</p>
-                        <p class="font-bold text-slate-700">—— このサイトは、「課題を共有し、社内で解決する」ための共創基盤です。</p>
-                    </div>
-                </div>
+            <div class="sp-webpart bg-white rounded-xl shadow-sm border border-slate-200 p-8 mt-8">
+                <div class="flex items-center gap-2 mb-3"><div class="w-8 h-1 bg-[#1e3a8a]"></div><span class="text-[#1e3a8a] font-bold tracking-widest text-xs uppercase">About This Portal</span></div>
+                <h2 class="text-2xl font-bold text-slate-800 mb-4 leading-tight">現場の「気づき」と、全社の「ソリューション」。<br>交われば、提案はもっと強くなる。</h2>
+                <p class="text-slate-600 text-sm">—— このサイトは、「課題を共有し、社内で解決する」ための共創基盤です。</p>
             </div>
         </div>
     </div>
@@ -609,254 +296,92 @@
         <div class="max-w-7xl mx-auto px-6 py-8 w-full">
             <div class="flex items-center gap-2 text-sm text-slate-500 mb-6">
                 <a href="#" onclick="showPage('topPage'); return false;" class="hover:text-blue-600"><i class="fa-solid fa-house"></i> ホーム</a>
-                <i class="fa-solid fa-chevron-right text-xs"></i>
-                <span class="font-bold text-slate-800">STORIES 一覧</span>
+                <i class="fa-solid fa-chevron-right text-xs"></i><span class="font-bold text-slate-800">STORIES 一覧</span>
             </div>
-            <h1 class="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2"><i class="fa-regular fa-newspaper text-slate-500"></i> STORIES</h1>
+            <h1 class="text-xl font-bold text-slate-800 mb-4">STORIES</h1>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <a href="#" onclick="showPage('storyFukumotoPage'); return false;" class="flex flex-col bg-white rounded-lg shadow-sm hover:shadow-md transition overflow-hidden group">
                     <div class="h-28 overflow-hidden"><img src="https://images.unsplash.com/photo-1581546508260-4c8b1a53c0b0?auto=format&fit=crop&w=400" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>
-                    <div class="p-3 flex-1 flex flex-col">
-                        <div class="text-[10px] text-slate-400 mb-1">2026.02.01 | Needs STORY</div>
-                        <h4 class="font-bold text-slate-800 text-sm mb-1 group-hover:text-[#1e3a8a] group-hover:underline">ヤオコーで学んだ「危機感」と「打ち手」</h4>
-                        <div class="mt-auto flex flex-wrap gap-1"><span class="tag">#インフレ</span><span class="tag">#構造コスト</span></div>
-                    </div>
+                    <div class="p-3 flex-1 flex flex-col"><div class="text-[10px] text-slate-400 mb-1">2026.02.01 | Needs STORY</div><h4 class="font-bold text-slate-800 text-sm mb-1 group-hover:text-[#1e3a8a] group-hover:underline">ヤオコーで学んだ「危機感」と「打ち手」</h4></div>
                 </a>
                 <a href="#" onclick="showPage('storyInariPage'); return false;" class="flex flex-col bg-white rounded-lg shadow-sm hover:shadow-md transition overflow-hidden group">
                     <div class="h-28 overflow-hidden"><img src="https://images.unsplash.com/photo-1585386959984-a4155223f3f8?auto=format&fit=crop&w=400" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>
-                    <div class="p-3 flex-1 flex flex-col">
-                        <div class="text-[10px] text-slate-400 mb-1">2026.02.01 | Needs STORY</div>
-                        <h4 class="font-bold text-slate-800 text-sm mb-1 group-hover:text-[#1e3a8a] group-hover:underline">【出向者紹介】バロー現場からつなぐ、伊藤忠グループ横連携</h4>
-                        <div class="mt-auto flex flex-wrap gap-1"><span class="tag">#バロー</span><span class="tag">#グループ連携</span></div>
-                    </div>
+                    <div class="p-3 flex-1 flex flex-col"><div class="text-[10px] text-slate-400 mb-1">2026.02.01 | Needs STORY</div><h4 class="font-bold text-slate-800 text-sm mb-1 group-hover:text-[#1e3a8a] group-hover:underline">【出向者紹介】バロー現場からつなぐ、伊藤忠グループ横連携</h4></div>
                 </a>
                 <a href="#" onclick="showPage('storyAkimotoPage'); return false;" class="flex flex-col bg-white rounded-lg shadow-sm hover:shadow-md transition overflow-hidden group">
                     <div class="h-28 overflow-hidden"><img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=400" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>
-                    <div class="p-3 flex-1 flex flex-col">
-                        <div class="text-[10px] text-slate-400 mb-1">2026.02.01 | Needs STORY</div>
-                        <h4 class="font-bold text-slate-800 text-sm mb-1 group-hover:text-[#1e3a8a] group-hover:underline">ヤオコーの「中食づくりの現場」から、伊藤忠グループへの橋渡し</h4>
-                        <div class="mt-auto flex flex-wrap gap-1"><span class="tag">#中食</span><span class="tag">#仕組み化</span></div>
-                    </div>
+                    <div class="p-3 flex-1 flex flex-col"><div class="text-[10px] text-slate-400 mb-1">2026.02.01 | Needs STORY</div><h4 class="font-bold text-slate-800 text-sm mb-1 group-hover:text-[#1e3a8a] group-hover:underline">ヤオコーの「中食づくりの現場」から、伊藤忠グループへの橋渡し</h4></div>
                 </a>
             </div>
         </div>
     </div>
 
-    <!-- About -->
-    <div id="aboutPage" class="page">
-        <div class="max-w-4xl mx-auto px-6 py-10 w-full">
-            <div class="flex items-center gap-2 text-sm text-slate-500 mb-6">
-                <a href="#" class="hover:text-blue-600" onclick="showPage('topPage'); return false;"><i class="fa-solid fa-house"></i> ホーム</a>
-                <i class="fa-solid fa-chevron-right text-xs"></i>
-                <span class="font-bold text-slate-800">About This Portal</span>
-            </div>
-            <section class="bg-white rounded-2xl border border-slate-200 shadow-sm p-8 mb-8">
-                <h1 class="text-3xl font-bold text-slate-800 mb-4">現場の「気づき」と、全社の「ソリューション」。交われば、提案はもっと強くなる。</h1>
-                <div class="text-slate-700 leading-relaxed space-y-4">
-                    <p>顧客と日々向き合う現場では、仕入れや商品だけでは応えきれないような、より上流の課題が聞こえてくることが増えています。</p>
-                    <p class="font-bold">—— このサイトは、「課題を共有し、社内で解決する」ための共創基盤です。</p>
-                </div>
-            </section>
-        </div>
-    </div>
-
-    <!-- 投稿 -->
-    <div id="postPage" class="page">
-        <div class="max-w-2xl mx-auto px-6 py-16 w-full flex flex-col items-center">
-            <h1 class="text-2xl font-bold text-slate-800 mb-6"><i class="fa-solid fa-pen-nib mr-2"></i>投稿ページ</h1>
-            <div class="bg-white rounded-xl border border-slate-200 shadow p-6 text-center w-full">
-                <p class="text-lg text-slate-700 mb-8">ここに投稿用のテンプレートが表示される想定</p>
-                <button onclick="showPage('topPage');" class="bg-gray-200 text-gray-700 font-bold py-2 px-6 rounded shadow hover:bg-gray-300 transition text-sm">TOPへ戻る</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- マーケットインBOX -->
-    <div id="marketPage" class="page">
-        <div class="max-w-2xl mx-auto px-6 py-16 w-full flex flex-col items-center">
-            <h1 class="text-2xl font-bold text-teal-800 mb-6"><i class="fa-solid fa-box-open mr-2"></i>マーケットインBOXページ</h1>
-            <div class="bg-white rounded-xl border border-slate-200 shadow p-6 text-center w-full">
-                <p class="text-lg text-slate-700 mb-8">既存のマーケットインBOXページに遷移する想定</p>
-                <button onclick="showPage('topPage');" class="bg-gray-200 text-gray-700 font-bold py-2 px-6 rounded shadow hover:bg-gray-300 transition text-sm">TOPへ戻る</button>
-            </div>
-        </div>
-    </div>
+    <!-- About / 投稿 / Market / Stories ページ（簡略） -->
+    <div id="aboutPage" class="page"><div class="max-w-4xl mx-auto px-6 py-10"><a href="#" onclick="showPage('topPage'); return false;" class="text-blue-600 text-sm">← ホーム</a><h1 class="text-3xl font-bold text-slate-800 mt-4 mb-4">現場の「気づき」と、全社の「ソリューション」。交われば、提案はもっと強くなる。</h1><p class="text-slate-700">—— このサイトは、「課題を共有し、社内で解決する」ための共創基盤です。</p></div></div>
+    <div id="postPage" class="page"><div class="max-w-2xl mx-auto px-6 py-16 text-center"><h1 class="text-2xl font-bold text-slate-800 mb-6">投稿ページ</h1><p class="text-slate-700 mb-8">ここに投稿フォームが表示される想定</p><button onclick="showPage('topPage');" class="bg-gray-200 text-gray-700 font-bold py-2 px-6 rounded">TOPへ戻る</button></div></div>
+    <div id="marketPage" class="page"><div class="max-w-2xl mx-auto px-6 py-16 text-center"><h1 class="text-2xl font-bold text-teal-800 mb-6">マーケットインBOXページ</h1><button onclick="showPage('topPage');" class="bg-gray-200 text-gray-700 font-bold py-2 px-6 rounded">TOPへ戻る</button></div></div>
 
     <!-- STORY 福本 -->
     <div id="storyFukumotoPage" class="page">
-        <div class="bg-white shadow-sm">
-            <div class="px-6 md:px-8 pt-6 pb-4 flex items-center gap-4 max-w-7xl mx-auto">
-                <div class="w-12 h-12 bg-slate-700 rounded flex items-center justify-center text-white font-bold text-xl">S</div>
-                <div><h2 class="text-2xl font-semibold text-gray-700">戦略投資・事業開発ハブ</h2><p class="text-sm text-gray-500">MARKET-IN Portal STORIES - Needs STORY</p></div>
-            </div>
-            <div class="px-6 md:px-8 border-t border-b border-gray-200">
-                <div class="max-w-7xl mx-auto flex gap-6 text-sm">
-                    <button onclick="showPage('topPage');" class="py-3 border-b-2 border-slate-700 font-semibold text-slate-800 flex items-center gap-1"><i class="fa-solid fa-house text-xs"></i> ホーム</button>
-                    <button onclick="showPage('storiesListPage');" class="py-3 text-gray-600 hover:text-gray-900">STORIES 一覧</button>
-                </div>
-            </div>
-        </div>
-        <main class="pb-10">
-            <div class="relative w-full h-[320px] bg-gray-200 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1581546508260-4c8b1a53c0b0?auto=format&fit=crop&w=1950&q=80" class="w-full h-full object-cover brightness-75">
-                <div class="absolute bottom-0 left-0 md:left-20 bg-white/95 p-8 max-w-4xl shadow-lg rounded-t-sm transform translate-y-8">
-                    <span class="bg-orange-100 text-orange-800 text-xs font-bold px-3 py-1 rounded-full">Needs STORY</span>
-                    <h1 class="text-3xl font-bold text-slate-900 mt-3 mb-2">ヤオコーで学んだ「危機感」と「打ち手」</h1>
-                    <p class="text-gray-500 mb-4">― 「36期増収増益」の裏側で進んでいた構造改革と、そこから見える小売のリアル</p>
-                    <div class="flex items-center gap-3 border-t border-gray-100 pt-4">
-                        <img src="https://i.pravatar.cc/150?u=fukumoto_y" class="w-10 h-10 rounded-full border border-gray-200">
-                        <div><p class="text-sm font-semibold text-gray-800">福本 亘</p><p class="text-xs text-gray-500">食品流通第一課</p></div>
-                    </div>
-                </div>
-            </div>
-            <div class="h-10 bg-white"></div>
-            <div class="max-w-7xl mx-auto px-8 pt-2 bg-white min-h-screen shadow-sm py-8">
-                <p class="text-slate-700 leading-relaxed mb-4">食品流通第一課の福本です。2018〜2020年の2年間、株式会社ヤオコーに出向し、直輸入会社の設立支援や経営企画室での事業管理を担当しました。</p>
-                <p class="text-slate-700 leading-relaxed">インフレ環境下で小売が直面している課題は、用地・人件費・光熱費といった構造的なコストにどう向き合うか、という経営レベルのテーマになっています。</p>
-                <div class="mt-8 flex gap-3">
-                    <button onclick="showPage('storiesListPage');" class="px-4 py-2 rounded-full border border-slate-300 text-sm text-slate-700 hover:bg-slate-50">STORIES一覧へ戻る</button>
-                    <button onclick="showPage('topPage');" class="px-4 py-2 rounded-full border border-slate-200 text-sm text-slate-500 hover:bg-slate-50">TOPへ戻る</button>
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <!-- STORY 稲荷 -->
-    <div id="storyInariPage" class="page">
-        <div class="max-w-4xl mx-auto px-6 py-10 w-full">
-            <div class="flex items-center gap-2 text-sm text-slate-500 mb-6">
-                <a href="#" onclick="showPage('topPage'); return false;" class="hover:text-blue-600"><i class="fa-solid fa-house"></i> ホーム</a>
-                <i class="fa-solid fa-chevron-right text-xs"></i>
-                <span class="font-bold text-slate-800">バロー出向者紹介</span>
-            </div>
-            <h1 class="text-2xl font-bold text-slate-900 mb-4">【出向者紹介】バロー現場からつなぐ、伊藤忠グループ横連携</h1>
-            <p class="text-slate-700 leading-relaxed mb-4">リテール開発第二課から、バローHD商品部に出向している稲荷です。「バローの現場」と「伊藤忠グループ各社のソリューション」をつなぐハブとしての役割を担っています。</p>
-            <div class="mt-8 flex gap-3">
-                <button onclick="showPage('storiesListPage');" class="px-4 py-2 rounded-full border border-slate-300 text-sm text-slate-700 hover:bg-slate-50">STORIES一覧へ戻る</button>
-                <button onclick="showPage('topPage');" class="px-4 py-2 rounded-full border border-slate-200 text-sm text-slate-500 hover:bg-slate-50">TOPへ戻る</button>
-            </div>
+        <div class="max-w-4xl mx-auto px-6 py-10">
+            <a href="#" onclick="showPage('storiesListPage'); return false;" class="text-blue-600 text-sm">← STORIES一覧</a>
+            <h1 class="text-2xl font-bold text-slate-900 mt-4 mb-4">ヤオコーで学んだ「危機感」と「打ち手」</h1>
+            <p class="text-slate-700 leading-relaxed mb-4">食品流通第一課の福本です。インフレ環境下で小売が直面している課題は、構造的なコストにどう向き合うか、という経営レベルのテーマになっています。</p>
+            <div class="mt-8 flex gap-3"><button onclick="showPage('storiesListPage');" class="px-4 py-2 rounded-full border border-slate-300 text-sm text-slate-700">STORIES一覧へ戻る</button><button onclick="showPage('topPage');" class="px-4 py-2 rounded-full border border-slate-200 text-sm text-slate-500">TOPへ戻る</button></div>
         </div>
     </div>
+    <div id="storyInariPage" class="page"><div class="max-w-4xl mx-auto px-6 py-10"><a href="#" onclick="showPage('storiesListPage'); return false;" class="text-blue-600 text-sm">← STORIES一覧</a><h1 class="text-2xl font-bold text-slate-900 mt-4 mb-4">【出向者紹介】バロー現場からつなぐ、伊藤忠グループ横連携</h1><p class="text-slate-700 leading-relaxed">バローHD商品部に出向している稲荷です。</p><div class="mt-8 flex gap-3"><button onclick="showPage('topPage');" class="px-4 py-2 rounded-full border border-slate-200 text-sm text-slate-500">TOPへ戻る</button></div></div></div>
+    <div id="storyAkimotoPage" class="page"><div class="max-w-4xl mx-auto px-6 py-10"><h1 class="text-2xl font-bold text-slate-900 mb-4">ヤオコーの「中食づくりの現場」から</h1><p class="text-slate-600 text-sm">※ 作成中</p><div class="mt-8"><button onclick="showPage('topPage');" class="px-4 py-2 rounded-full border border-slate-200 text-sm text-slate-500">TOPへ戻る</button></div></div></div>
+    <div id="storyIshiguchiPage" class="page"><div class="max-w-4xl mx-auto px-6 py-10"><h1 class="text-2xl font-bold text-slate-900 mb-4">小売3社との現場連携と課題テーマ</h1><p class="text-slate-600 text-sm">※ 作成中</p><div class="mt-8"><button onclick="showPage('topPage');" class="px-4 py-2 rounded-full border border-slate-200 text-sm text-slate-500">TOPへ戻る</button></div></div></div>
+    <div id="storyUnicoPage" class="page"><div class="max-w-4xl mx-auto px-6 py-10"><h1 class="text-2xl font-bold text-slate-900 mb-4">企業向け制服、ユニフォーム協業に関するご提案</h1><p class="text-slate-600 text-sm">※ 作成中</p><div class="mt-8"><button onclick="showPage('topPage');" class="px-4 py-2 rounded-full border border-slate-200 text-sm text-slate-500">TOPへ戻る</button></div></div></div>
+    <div id="storyPowerPage" class="page"><div class="max-w-4xl mx-auto px-6 py-10"><h1 class="text-2xl font-bold text-slate-900 mb-4">他部署連携による電力提案の取り組みについて</h1><p class="text-slate-600 text-sm">※ 作成中</p><div class="mt-8"><button onclick="showPage('topPage');" class="px-4 py-2 rounded-full border border-slate-200 text-sm text-slate-500">TOPへ戻る</button></div></div></div>
 
-    <!-- STORY 穐元 -->
-    <div id="storyAkimotoPage" class="page">
-        <div class="max-w-4xl mx-auto px-6 py-10 w-full">
-            <div class="flex items-center gap-2 text-sm text-slate-500 mb-6">
-                <a href="#" onclick="showPage('topPage'); return false;" class="hover:text-blue-600"><i class="fa-solid fa-house"></i> ホーム</a>
-                <i class="fa-solid fa-chevron-right text-xs"></i>
-                <span class="font-bold text-slate-800">中食づくりの現場から</span>
-            </div>
-            <h1 class="text-2xl font-bold text-slate-900 mb-4">ヤオコーの「中食づくりの現場」から、伊藤忠グループへの橋渡し</h1>
-            <p class="text-slate-600 text-sm">※ この記事は作成中です。</p>
-            <div class="mt-8 flex gap-3">
-                <button onclick="showPage('storiesListPage');" class="px-4 py-2 rounded-full border border-slate-300 text-sm text-slate-700 hover:bg-slate-50">STORIES一覧へ戻る</button>
-                <button onclick="showPage('topPage');" class="px-4 py-2 rounded-full border border-slate-200 text-sm text-slate-500 hover:bg-slate-50">TOPへ戻る</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- STORY 石口 -->
-    <div id="storyIshiguchiPage" class="page">
-        <div class="max-w-4xl mx-auto px-6 py-10 w-full">
-            <h1 class="text-2xl font-bold text-slate-900 mb-4">小売3社との現場連携と課題テーマ</h1>
-            <p class="text-slate-600 text-sm">※ この記事は作成中です。</p>
-            <div class="mt-8"><button onclick="showPage('topPage');" class="px-4 py-2 rounded-full border border-slate-200 text-sm text-slate-500 hover:bg-slate-50">TOPへ戻る</button></div>
-        </div>
-    </div>
-
-    <!-- STORY ユニコ -->
-    <div id="storyUnicoPage" class="page">
-        <div class="max-w-4xl mx-auto px-6 py-10 w-full">
-            <h1 class="text-2xl font-bold text-slate-900 mb-4">企業向け制服、ユニフォーム協業に関するご提案</h1>
-            <p class="text-slate-600 text-sm">※ この記事は作成中です。</p>
-            <div class="mt-8"><button onclick="showPage('topPage');" class="px-4 py-2 rounded-full border border-slate-200 text-sm text-slate-500 hover:bg-slate-50">TOPへ戻る</button></div>
-        </div>
-    </div>
-
-    <!-- STORY VO電力 -->
-    <div id="storyPowerPage" class="page">
-        <div class="max-w-4xl mx-auto px-6 py-10 w-full">
-            <h1 class="text-2xl font-bold text-slate-900 mb-4">他部署連携による電力提案の取り組みについて</h1>
-            <p class="text-slate-600 text-sm">※ この記事は作成中です。</p>
-            <div class="mt-8"><button onclick="showPage('topPage');" class="px-4 py-2 rounded-full border border-slate-200 text-sm text-slate-500 hover:bg-slate-50">TOPへ戻る</button></div>
-        </div>
-    </div>
-
-    <!-- モーダル -->
+    <!-- モーダル（コメント機能付き） -->
     <div id="modalOverlay" class="modal fixed inset-0 z-[100] flex items-center justify-center bg-black/40 backdrop-blur-sm" onclick="closeModal(event)">
-        <div class="modal-content bg-white w-full max-w-2xl max-h-[85vh] rounded-xl shadow-2xl flex flex-col relative" onclick="event.stopPropagation()">
+        <div class="modal-content bg-white w-full max-w-2xl max-h-[90vh] rounded-xl shadow-2xl flex flex-col relative" onclick="event.stopPropagation()">
             <div class="px-6 py-4 border-b border-slate-200 flex justify-between items-center">
                 <div class="flex items-center gap-2" id="modalHeaderType"></div>
                 <button onclick="closeModalForce()" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-times text-xl"></i></button>
             </div>
-            <div class="flex-1 overflow-y-auto p-6" id="modalBodyContent"></div>
+            <div class="flex-1 overflow-y-auto" id="modalBodyContent"></div>
             <div class="px-6 py-4 border-t border-slate-200 bg-slate-50 flex justify-end gap-3 rounded-b-xl">
                 <button class="px-4 py-2 border border-slate-300 text-slate-600 rounded-full hover:bg-white text-sm" onclick="closeModalForce()">閉じる</button>
-                <button class="px-4 py-2 bg-[#1e3a8a] text-white rounded-full hover:bg-blue-800 text-sm flex items-center gap-2">
-                    <i class="fa-regular fa-envelope"></i> この案件に連絡する
-                </button>
+                <button class="px-4 py-2 bg-[#1e3a8a] text-white rounded-full hover:bg-blue-800 text-sm flex items-center gap-2"><i class="fa-regular fa-envelope"></i> この案件に連絡する</button>
             </div>
         </div>
     </div>
 
     <script>
     // ========== ヘッダーAIチャット ==========
-    function handleHeaderChatKeydown(e) {
-        if(e.key === 'Enter') { e.preventDefault(); sendHeaderChat(); }
-    }
-    function scrollToAIChat() {
-        const section = document.getElementById('aiChatSection');
-        if(section) section.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
+    function handleHeaderChatKeydown(e) { if(e.key === 'Enter') { e.preventDefault(); sendHeaderChat(); } }
+    function scrollToAIChat() { document.getElementById('aiChatSection')?.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
     function sendHeaderChat() {
         const input = document.getElementById('headerChatInput');
         const text = input.value.trim();
         if(!text) return;
-        // AIチャットセクションにスクロール
         scrollToAIChat();
-        // 少し待ってからメインチャットに送信
         setTimeout(() => {
             const mainInput = document.getElementById('chatInput');
-            if(mainInput) {
-                mainInput.value = text;
-                sendChatMessage();
-                input.value = '';
-            }
+            if(mainInput) { mainInput.value = text; sendChatMessage(); input.value = ''; }
         }, 600);
     }
 
     // ========== ページ遷移 ==========
     function showPage(pageId) {
-        const ids = ['topPage','storiesListPage','postPage','marketPage','aboutPage',
-                     'storyFukumotoPage','storyInariPage','storyAkimotoPage',
-                     'storyIshiguchiPage','storyUnicoPage','storyPowerPage'];
+        const ids = ['topPage','storiesListPage','postPage','marketPage','aboutPage','storyFukumotoPage','storyInariPage','storyAkimotoPage','storyIshiguchiPage','storyUnicoPage','storyPowerPage'];
         ids.forEach(id => { const el = document.getElementById(id); if(el) el.classList.remove('active'); });
         const target = document.getElementById(pageId);
         if(target) { target.classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
     }
-    function showFilters() { showPage('topPage'); setTimeout(() => { document.getElementById('filterSection')?.scrollIntoView({behavior:'smooth'}); }, 100); }
-    function focusTopFilterKeyword() { showPage('topPage'); setTimeout(() => { document.getElementById('filterKeyword')?.focus(); }, 100); }
-    function resetFilters() {
-        document.getElementById('filterKeyword').value = '';
-        document.getElementById('filterNeeds').checked = true;
-        document.getElementById('filterSeeds').checked = true;
-        document.getElementById('filterDept').value = '';
-        applyFilters();
-    }
     function applyFilters() {
         const keyword = (document.getElementById('filterKeyword')?.value || '').toLowerCase();
-        const needsOn = document.getElementById('filterNeeds')?.checked ?? true;
-        const seedsOn = document.getElementById('filterSeeds')?.checked ?? true;
-        const deptVal = document.getElementById('filterDept')?.value || '';
+        const needsOn = true;
+        const seedsOn = true;
         document.querySelectorAll('.ns-card').forEach(card => {
             const type = card.getAttribute('data-type');
-            const dept = card.getAttribute('data-dept') || '';
             const text = (card.getAttribute('data-text') || '').toLowerCase();
             const tags = (card.getAttribute('data-tags') || '').toLowerCase();
             let visible = true;
-            if(type === 'Needs' && !needsOn) visible = false;
-            if(type === 'Seeds' && !seedsOn) visible = false;
-            if(deptVal && !dept.includes(deptVal)) visible = false;
             if(keyword && !(text + ' ' + tags).includes(keyword)) visible = false;
             if(card.classList.contains('hidden-by-limit')) { if(visible) { card.classList.add('hidden'); return; } }
             card.classList.toggle('hidden', !visible);
@@ -867,8 +392,7 @@
     document.addEventListener('DOMContentLoaded', function() {
         const slides = document.querySelectorAll('.hero-slide-full');
         const dots = document.querySelectorAll('.hero-dot-full');
-        let currentIndex = 0;
-        let intervalId = null;
+        let currentIndex = 0, intervalId = null;
         function showSlide(index) {
             slides.forEach((s,i) => s.classList.toggle('hidden', i !== index));
             dots.forEach((d,i) => { d.classList.toggle('bg-white/80', i === index); d.classList.toggle('bg-white/40', i !== index); });
@@ -886,20 +410,20 @@
 
     // ========== Needs & Seeds データ ==========
     const needsItems = [
-        { id:'N1', type:'Needs', dept:'リテール開発第二課 × ヤオコー中食', title:'属人的な「目利き・現場感」を仕組みに落とし込む中食商品開発プロセスの構築', summary:'属人的な商品開発を再現性のあるプロセスにしたい。', sub:'設計〜調達〜運用までを標準化できるフレーム・ツールを求めている。', detail:'【背景・課題】\nヤオコーの中食は属人的な商品開発が強みだが、引き継ぎに課題がある。\n\n【求めていること】\n・レシピ開発～調達～店舗オペレーションまでの標準プロセス設計\n・企画書フォーマット、評価シートなど再現性を高めるツール群', tags:['#中食','#商品開発','#属人化'], storyUrl:'', storyLabel:'' },
-        { id:'N4', type:'Needs', dept:'食品流通第一課 × ヤオコー', title:'インフレ環境下での人件費・光熱費・出店コスト等「構造的コスト」への打ち手', summary:'インフレで膨らんだ構造的コストを中長期で抑えたい。', sub:'コスト診断と投資対効果が分かるエネルギー・設備ソリューションを求めている。', detail:'【背景・課題】\n構造的なコスト増が続いており、新規出店を続けるだけでは限界が見え始めている。\n\n【求めていること】\n・光熱費削減、設備更新につながる具体ソリューション\n・人件費を抑えつつサービスレベルを維持する業務効率化', tags:['#インフレ','#コスト構造','#光熱費'], storyUrl:'storyFukumotoPage', storyLabel:'ヤオコーで学んだ「危機感」と「打ち手」を読む' },
-        { id:'N6', type:'Needs', dept:'食品流通第一課 × 小売全般', title:'人手不足・離職率の高さに対応する採用・教育・業務効率化ソリューション', summary:'慢性的な人手不足・離職を採用＋育成＋省人化のセットで改善したい。', sub:'「タイミー」に続く、人材マッチング・教育DX・業務自動化のソリューションを求めている。', detail:'【背景・課題】\n多くの店舗で人員不足と負荷集中が起きており、採用も容易ではない。\n\n【求めていること】\n・採用プロセスの簡素化\n・教育・研修の効率化と定着支援ツール', tags:['#人手不足','#採用・教育','#業務効率化'], storyUrl:'storyFukumotoPage', storyLabel:'ヤオコーで学んだ「危機感」と「打ち手」を読む' },
-        { id:'N7', type:'Needs', dept:'バロー商品部 × ITC出向者', title:'遊休地・店舗駐車場・テナント空室の有効活用スキーム構築', summary:'駐車場や遊休地を収益・集客・地域連携に結びつけたい。', sub:'小売敷地を活用した拠点・イベント・サービス展開のモデルを求めている。', detail:'【背景・課題】\n郊外型店舗に眠っている資産が各所に存在する。\n\n【求めていること】\n・駐車場・遊休地活用の新サービス事例\n・収益配分スキームの設計', tags:['#遊休地活用','#店舗駐車場','#新規事業'], storyUrl:'storyInariPage', storyLabel:'バロー出向ストーリーを読む' },
-        { id:'N8', type:'Needs', dept:'食品流通第一課 × ヤオコー／小売全般', title:'国内成熟を見据えた海外展開・M&A・新業態開発を伴走支援できるパートナー', summary:'国内成熟を前提に海外展開やM&Aを中長期で伴走してくれるパートナーがほしい。', sub:'現地ネットワーク・投資スキーム・リスク管理まで含めた支援を求めている。', detail:'【背景・課題】\n国内の人口減少・市場成熟を受け、ヤオコーはベトナム企業への出資など海外での成長機会を模索している。\n\n【求めていること】\n・地域ごとの小売・流通市場情報\n・少額出資〜本格M&Aまでの投資スキーム設計', tags:['#海外展開','#M&A','#新業態'], storyUrl:'storyFukumotoPage', storyLabel:'ヤオコーで学んだ「危機感」と「打ち手」を読む' },
-        { id:'N9', type:'Needs', dept:'バロー商品部 × 人事・HRソリューションチーム', title:'新規出店エリアでの人材確保・新卒採用・定着の強化', summary:'新店や地方エリアで「採用できない・続かない」状況を抜本的に改善したい。', sub:'採用チャネル設計からオンボーディング・定着まで一気通貫で支援できる仕組みを求めている。', detail:'【背景・課題】\n新規出店エリアや地方都市で採用が困難で早期離職が多い。\n\n【求めていること】\n・採用チャネル設計と運用支援\n・シンプルで回しやすい教育・オンボーディングプログラム', tags:['#人材確保','#新卒採用','#定着'], storyUrl:'storyInariPage', storyLabel:'バロー出向ストーリーを読む' },
+        { id:'N1', type:'Needs', dept:'リテール開発第二課 × ヤオコー中食', title:'属人的な「目利き・現場感」を仕組みに落とし込む中食商品開発プロセスの構築', summary:'属人的な商品開発を再現性のあるプロセスにしたい。', sub:'設計〜調達〜運用までを標準化できるフレーム・ツールを求めている。', detail:'【背景・課題】\nヤオコーの中食は属人的な商品開発が強みだが、引き継ぎに課題がある。\n\n【求めていること】\n・標準プロセス設計\n・企画書フォーマット、評価シートなど', tags:['#中食','#商品開発','#属人化'], storyUrl:'', storyLabel:'' },
+        { id:'N4', type:'Needs', dept:'食品流通第一課 × ヤオコー', title:'インフレ環境下での人件費・光熱費・出店コスト等「構造的コスト」への打ち手', summary:'インフレで膨らんだ構造的コストを中長期で抑えたい。', sub:'コスト診断と投資対効果が分かるエネルギー・設備ソリューションを求めている。', detail:'【背景・課題】\n構造的なコスト増が続いている。\n\n【求めていること】\n・光熱費削減につながる具体ソリューション', tags:['#インフレ','#コスト構造','#光熱費'], storyUrl:'storyFukumotoPage', storyLabel:'ヤオコーで学んだ「危機感」と「打ち手」を読む' },
+        { id:'N6', type:'Needs', dept:'食品流通第一課 × 小売全般', title:'人手不足・離職率の高さに対応する採用・教育・業務効率化ソリューション', summary:'慢性的な人手不足・離職を採用＋育成＋省人化のセットで改善したい。', sub:'人材マッチング・教育DX・業務自動化のソリューションを求めている。', detail:'【背景・課題】\n多くの店舗で人員不足が続いている。\n\n【求めていること】\n・採用プロセスの簡素化\n・教育・研修の効率化', tags:['#人手不足','#採用・教育','#業務効率化'], storyUrl:'storyFukumotoPage', storyLabel:'ヤオコーで学んだ「危機感」と「打ち手」を読む' },
+        { id:'N7', type:'Needs', dept:'バロー商品部 × ITC出向者', title:'遊休地・店舗駐車場・テナント空室の有効活用スキーム構築', summary:'駐車場や遊休地を収益・集客・地域連携に結びつけたい。', sub:'小売敷地を活用した拠点・イベント・サービス展開のモデルを求めている。', detail:'【背景・課題】\n郊外型店舗に眠っている資産が各所に存在する。\n\n【求めていること】\n・駐車場・遊休地活用の新サービス事例', tags:['#遊休地活用','#店舗駐車場','#新規事業'], storyUrl:'storyInariPage', storyLabel:'バロー出向ストーリーを読む' },
+        { id:'N8', type:'Needs', dept:'食品流通第一課 × ヤオコー／小売全般', title:'国内成熟を見据えた海外展開・M&A・新業態開発を伴走支援できるパートナー', summary:'国内成熟を前提に海外展開やM&Aを中長期で伴走してくれるパートナーがほしい。', sub:'現地ネットワーク・投資スキーム・リスク管理まで含めた支援を求めている。', detail:'【背景・課題】\nヤオコーはベトナム企業への出資など海外での成長機会を模索している。\n\n【求めていること】\n・地域ごとの市場情報\n・投資スキーム設計', tags:['#海外展開','#M&A','#新業態'], storyUrl:'storyFukumotoPage', storyLabel:'ヤオコーで学んだ「危機感」と「打ち手」を読む' },
+        { id:'N9', type:'Needs', dept:'バロー商品部 × 人事・HRソリューションチーム', title:'新規出店エリアでの人材確保・新卒採用・定着の強化', summary:'新店や地方エリアで「採用できない・続かない」状況を抜本的に改善したい。', sub:'採用チャネル設計からオンボーディング・定着まで一気通貫で支援できる仕組みを求めている。', detail:'【背景・課題】\n新規出店エリアや地方都市で採用が困難で早期離職が多い。\n\n【求めていること】\n・採用チャネル設計と運用支援', tags:['#人材確保','#新卒採用','#定着'], storyUrl:'storyInariPage', storyLabel:'バロー出向ストーリーを読む' },
     ];
     const seedsItems = [
-        { id:'S1', type:'Seeds', dept:'エネルギー・インフラ関連チーム', title:'店舗・センター向け「省エネ診断＋設備更新」ワンストップパッケージ', value:'電力使用の見える化から省エネ設備導入、補助金活用まで一気通貫で支援可能。', usecase:'SMチェーンの店舗・センターで光熱費10〜20％削減を目指す案件に活用。', detail:'【提供できる価値】\n・店舗・センター単位での電力使用データ分析\n・空調・冷ケース・照明等の省エネ設備提案\n・補助金・リースを活用した投資負担の平準化', tags:['#省エネ','#光熱費削減','#店舗改装'], storyUrl:'', storyLabel:'' },
-        { id:'S2', type:'Seeds', dept:'人事・HRソリューションチーム', title:'小売向け「採用〜定着」支援プラットフォーム', value:'応募者獲得・適性診断・教育コンテンツ配信・離職傾向の可視化を一つの仕組みで提供。', usecase:'新卒・中途・アルバイトの採用強化と定着改善を同時に進めたい企業向け。', detail:'【提供できる価値】\n・採用チャネルの最適化と応募者管理\n・現場を意識したオンライン教育コンテンツ\n・人材データを活用した離職リスクの見える化', tags:['#HRテック','#人材確保','#教育・研修'], storyUrl:'', storyLabel:'' },
-        { id:'S3', type:'Seeds', dept:'リテールDX推進チーム', title:'店頭作業を可視化する「業務タイムスタディ＋省人化提案」サービス', value:'品出し・陳列・前出し・簡易加工などの工数を見える化し省力化提案ができる。', usecase:'バロー・サミットなど店頭オペレーションの省人化を進めたい企業にフィット。', detail:'【提供できる価値】\n・現場ヒアリングとタイムスタディによる作業可視化\n・省力化什器、ラベリング自動化等の提案\n・投資対効果シミュレーション', tags:['#省人化','#業務効率化','#店頭オペレーション'], storyUrl:'', storyLabel:'' },
-        { id:'S4', type:'Seeds', dept:'不動産・住生活カンパニー', title:'店舗駐車場・遊休地の複合活用モデル（レンタル拠点・EV充電・イベント等）', value:'駐車場・遊休地を活用したレンタル拠点、EV充電、地域イベントなどの複合収益モデルを設計可能。', usecase:'広い駐車場・遊休地を持つ小売チェーンの収益源多角化に貢献。', detail:'【提供できる価値】\n・敷地特性に応じた活用案の複数パターン設計\n・パートナー企業との座組構築\n・試験導入から複数店舗への横展開プラン', tags:['#遊休地活用','#駐車場','#新規事業'], storyUrl:'', storyLabel:'' },
-        { id:'S5', type:'Seeds', dept:'リテールメディア・マーケチーム', title:'地方SM向け「リテールメディア×メーカー共同プロモーション」', value:'店内サイネージ・アプリ・紙媒体を組み合わせ、メーカー広告費を取り込む形で販促費を抑制できる。', usecase:'営業利益率が低く差別化と新収益源創出を同時に狙いたいチェーン向け。', detail:'【提供できる価値】\n・サイネージや会員アプリを活用した広告枠の設計\n・メーカーとの共同プロモーション企画\n・効果測定レポートの提供', tags:['#リテールメディア','#販促','#新収益源'], storyUrl:'', storyLabel:'' },
-        { id:'S6', type:'Seeds', dept:'中食・素材開発チーム', title:'中食向け「原料×レシピ」パッケージ提案（脱プラ容器・ヘルシー素材等）', value:'環境配慮素材やヘルシー素材と、それを活かした中食メニューをセットで提案可能。', usecase:'中食カテゴリーで環境配慮・健康軸の新商品を増やしたい企業向け。', detail:'【提供できる価値】\n・脱プラ・減プラを意識した容器・包材の提案\n・ヘルシー素材を使ったメニューのレシピサンプル\n・プロセスセンターでのオペレーションを意識した設計', tags:['#中食','#環境配慮','#健康志向'], storyUrl:'', storyLabel:'' },
+        { id:'S1', type:'Seeds', dept:'エネルギー・インフラ関連チーム', title:'店舗・センター向け「省エネ診断＋設備更新」ワンストップパッケージ', value:'電力使用の見える化から省エネ設備導入、補助金活用まで一気通貫で支援可能。', usecase:'SMチェーンの店舗・センターで光熱費10〜20％削減を目指す案件に活用。', detail:'【提供できる価値】\n・電力使用データ分析\n・省エネ設備提案\n・補助金活用支援', tags:['#省エネ','#光熱費削減','#店舗改装'], storyUrl:'', storyLabel:'' },
+        { id:'S2', type:'Seeds', dept:'人事・HRソリューションチーム', title:'小売向け「採用〜定着」支援プラットフォーム', value:'応募者獲得・適性診断・教育コンテンツ配信・離職傾向の可視化を一つの仕組みで提供。', usecase:'新卒・中途・アルバイトの採用強化と定着改善を同時に進めたい企業向け。', detail:'【提供できる価値】\n・採用チャネルの最適化\n・オンライン教育コンテンツ\n・離職リスクの見える化', tags:['#HRテック','#人材確保','#教育・研修'], storyUrl:'', storyLabel:'' },
+        { id:'S3', type:'Seeds', dept:'リテールDX推進チーム', title:'店頭作業を可視化する「業務タイムスタディ＋省人化提案」サービス', value:'品出し・陳列・前出し・簡易加工などの工数を見える化し省力化提案ができる。', usecase:'バロー・サミットなど店頭オペレーションの省人化を進めたい企業にフィット。', detail:'【提供できる価値】\n・タイムスタディによる作業可視化\n・省力化什器提案\n・投資対効果シミュレーション', tags:['#省人化','#業務効率化','#店頭オペレーション'], storyUrl:'', storyLabel:'' },
+        { id:'S4', type:'Seeds', dept:'不動産・住生活カンパニー', title:'店舗駐車場・遊休地の複合活用モデル（レンタル拠点・EV充電・イベント等）', value:'駐車場・遊休地を活用したレンタル拠点、EV充電、地域イベントなどの複合収益モデルを設計可能。', usecase:'広い駐車場・遊休地を持つ小売チェーンの収益源多角化に貢献。', detail:'【提供できる価値】\n・活用案の複数パターン設計\n・パートナー企業との座組構築\n・横展開プラン策定', tags:['#遊休地活用','#駐車場','#新規事業'], storyUrl:'', storyLabel:'' },
+        { id:'S5', type:'Seeds', dept:'リテールメディア・マーケチーム', title:'地方SM向け「リテールメディア×メーカー共同プロモーション」', value:'店内サイネージ・アプリ・紙媒体を組み合わせ、メーカー広告費を取り込む形で販促費を抑制できる。', usecase:'営業利益率が低く差別化と新収益源創出を同時に狙いたいチェーン向け。', detail:'【提供できる価値】\n・広告枠の設計\n・共同プロモーション企画\n・効果測定レポート', tags:['#リテールメディア','#販促','#新収益源'], storyUrl:'', storyLabel:'' },
+        { id:'S6', type:'Seeds', dept:'中食・素材開発チーム', title:'中食向け「原料×レシピ」パッケージ提案（脱プラ容器・ヘルシー素材等）', value:'環境配慮素材やヘルシー素材と、それを活かした中食メニューをセットで提案可能。', usecase:'中食カテゴリーで環境配慮・健康軸の新商品を増やしたい企業向け。', detail:'【提供できる価値】\n・脱プラ容器・包材の提案\n・ヘルシー素材レシピサンプル\n・オペレーション設計', tags:['#中食','#環境配慮','#健康志向'], storyUrl:'', storyLabel:'' },
     ];
 
     const allItems = {};
@@ -913,10 +437,8 @@
         const textConcat = isNeeds ? `${item.title} ${item.summary} ${item.sub}` : `${item.title} ${item.value} ${item.usecase}`;
         return `
         <div class="ns-card bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md ${isNeeds?'hover:border-orange-300':'hover:border-blue-300'} transition cursor-pointer flex flex-col h-full p-4"
-             onclick="openModal('${item.id}')"
-             data-type="${item.type}" data-dept="${item.dept}"
-             data-tags="${(item.tags||[]).join(' ')}"
-             data-text="${textConcat.replace(/"/g,'&quot;')}">
+             onclick="openModal('${item.id}')" data-type="${item.type}" data-dept="${item.dept}"
+             data-tags="${(item.tags||[]).join(' ')}" data-text="${textConcat.replace(/"/g,'&quot;')}">
             <div class="flex items-center justify-between mb-2">
                 <span class="inline-flex items-center gap-1 ${isNeeds?'bg-orange-100 text-orange-700':'bg-blue-100 text-blue-700'} text-[11px] font-semibold px-2 py-0.5 rounded-full">
                     <i class="fa-solid ${isNeeds?'fa-circle-exclamation':'fa-seedling'} text-[10px]"></i> ${item.type}
@@ -970,21 +492,14 @@
             btn.addEventListener('click', () => {
                 document.getElementById('filterKeyword').value = tag.replace(/^#/,'');
                 applyFilters();
-                document.querySelector('.sp-webpart.mt-2')?.scrollIntoView({behavior:'smooth'});
             });
             container.appendChild(btn);
         });
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-        ['filterKeyword','filterNeeds','filterSeeds','filterDept'].forEach(id => {
-            const el = document.getElementById(id);
-            if(el) el.addEventListener(id === 'filterKeyword' ? 'input' : 'change', applyFilters);
-        });
-        applyFilters(); applyListLimit(); buildTrendingTags();
-    });
+    document.addEventListener('DOMContentLoaded', () => { applyFilters(); applyListLimit(); buildTrendingTags(); });
 
-    // ========== モーダル ==========
+    // ========== モーダル（コメント機能付き） ==========
     function openModal(id) {
         const item = allItems[id];
         if(!item) return;
@@ -998,85 +513,127 @@
         const storyHtml = item.storyUrl ? `
             <div class="mt-4 bg-slate-50 border border-slate-200 rounded-lg p-3">
                 <div class="text-xs font-semibold text-slate-600 mb-1"><i class="fa-regular fa-bookmark mr-1"></i>関連するSTORY</div>
-                <a href="#" onclick="showPage('${item.storyUrl}'); closeModalForce(); return false;"
-                   class="text-xs text-blue-700 hover:underline">${item.storyLabel} <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                <a href="#" onclick="showPage('${item.storyUrl}'); closeModalForce(); return false;" class="text-xs text-blue-700 hover:underline">${item.storyLabel} <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
             </div>` : '';
+
         document.getElementById('modalBodyContent').innerHTML = `
-            <h2 class="text-xl font-bold text-slate-900 mb-4">${item.title}</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
-                <div class="${isNeeds?'bg-orange-50 border-orange-100':'bg-blue-50 border-blue-100'} border rounded-lg p-4">
-                    <div class="text-xs font-semibold ${isNeeds?'text-orange-700':'text-blue-700'} mb-1">${isNeeds?'課題':'提供できる価値'}</div>
-                    <p class="text-sm text-slate-800">${isNeeds?item.summary:item.value}</p>
+            <div class="p-6">
+                <h2 class="text-xl font-bold text-slate-900 mb-4">${item.title}</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+                    <div class="${isNeeds?'bg-orange-50 border-orange-100':'bg-blue-50 border-blue-100'} border rounded-lg p-4">
+                        <div class="text-xs font-semibold ${isNeeds?'text-orange-700':'text-blue-700'} mb-1">${isNeeds?'課題':'提供できる価値'}</div>
+                        <p class="text-sm text-slate-800">${isNeeds?item.summary:item.value}</p>
+                    </div>
+                    <div class="${isNeeds?'bg-emerald-50 border-emerald-100':'bg-indigo-50 border-indigo-100'} border rounded-lg p-4">
+                        <div class="text-xs font-semibold ${isNeeds?'text-emerald-700':'text-indigo-700'} mb-1">${isNeeds?'求めていること':'活用イメージ'}</div>
+                        <p class="text-sm text-slate-800 mb-2">${isNeeds?item.sub:item.usecase}</p>
+                        <div class="flex flex-wrap gap-1">${tagsHtml}</div>
+                    </div>
                 </div>
-                <div class="${isNeeds?'bg-emerald-50 border-emerald-100':'bg-indigo-50 border-indigo-100'} border rounded-lg p-4">
-                    <div class="text-xs font-semibold ${isNeeds?'text-emerald-700':'text-indigo-700'} mb-1">${isNeeds?'求めていること':'活用イメージ'}</div>
-                    <p class="text-sm text-slate-800 mb-2">${isNeeds?item.sub:item.usecase}</p>
-                    <div class="flex flex-wrap gap-1">${tagsHtml}</div>
+                <div class="bg-white border border-slate-200 rounded-lg p-4 mb-4">
+                    <div class="text-xs font-semibold text-slate-500 mb-1">詳細</div>
+                    <pre class="whitespace-pre-wrap text-sm text-slate-800 font-sans">${(item.detail||'').trim()}</pre>
                 </div>
-            </div>
-            <div class="bg-white border border-slate-200 rounded-lg p-4">
-                <div class="text-xs font-semibold text-slate-500 mb-1">詳細</div>
-                <pre class="whitespace-pre-wrap text-sm text-slate-800 font-sans">${(item.detail||'').trim()}</pre>
-            </div>
-            ${storyHtml}`;
+                ${storyHtml}
+
+                <!-- コメントセクション -->
+                <div class="mt-6 border-t border-slate-200 pt-5">
+                    <h3 class="text-sm font-bold text-slate-700 mb-3 flex items-center gap-2">
+                        <i class="fa-regular fa-comments text-slate-500"></i> ディスカッション
+                    </h3>
+
+                    <!-- コメント一覧 -->
+                    <div id="commentList" class="mb-4 space-y-1 max-h-48 overflow-y-auto">
+                        <p class="text-xs text-slate-400 text-center py-4">読み込み中...</p>
+                    </div>
+
+                    <!-- コメント入力フォーム -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-lg p-4">
+                        <div class="mb-3">
+                            <input type="text" id="commentAuthor" placeholder="お名前（例：食品流通 山田）"
+                                   class="w-full border border-slate-300 rounded px-3 py-2 text-xs focus:outline-none focus:border-blue-500">
+                        </div>
+                        <div class="mb-3">
+                            <textarea id="commentContent" rows="3" placeholder="コメント・提案・質問などを入力してください..."
+                                      class="w-full border border-slate-300 rounded px-3 py-2 text-xs focus:outline-none focus:border-blue-500 resize-none"></textarea>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <p class="text-[10px] text-slate-400">このコメントはポータルメンバー全員に公開されます</p>
+                            <button id="commentSubmitBtn" onclick="postComment('${item.id}', '${item.title.replace(/'/g, "\\'")}')"
+                                    class="bg-[#1e3a8a] text-white text-xs font-semibold px-4 py-2 rounded-full hover:bg-blue-800 transition">
+                                コメントする
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+
         document.getElementById('modalOverlay').classList.add('active');
         document.body.style.overflow = 'hidden';
+        loadComments(id);
     }
+
     function closeModal(e) { if(e.target.id === 'modalOverlay') closeModalForce(); }
     function closeModalForce() { document.getElementById('modalOverlay').classList.remove('active'); document.body.style.overflow = 'auto'; }
 
+    // ========== コメント機能 ==========
+    async function loadComments(cardId) {
+        const container = document.getElementById('commentList');
+        if(!container) return;
+        try {
+            const res = await fetch(`/api/comment?card_id=${cardId}`);
+            const comments = await res.json();
+            if(!Array.isArray(comments) || !comments.length) {
+                container.innerHTML = '<p class="text-xs text-slate-400 text-center py-4">まだコメントはありません。最初のコメントを投稿してください！</p>';
+                return;
+            }
+            container.innerHTML = comments.map(c => `
+                <div class="flex gap-3 py-3 border-b border-slate-100 last:border-0">
+                    <div class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs font-bold flex-shrink-0">
+                        ${escapeHtml(c.author).charAt(0)}
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-baseline gap-2 mb-1">
+                            <span class="text-xs font-bold text-slate-700">${escapeHtml(c.author)}</span>
+                            <span class="text-[10px] text-slate-400">${new Date(c.created_at).toLocaleString('ja-JP')}</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">${escapeHtml(c.content).replace(/\n/g,'<br>')}</p>
+                    </div>
+                </div>
+            `).join('');
+        } catch(e) {
+            container.innerHTML = '<p class="text-xs text-red-400 text-center py-4">読み込みに失敗しました</p>';
+        }
+    }
+
+    async function postComment(cardId, cardTitle) {
+        const author = document.getElementById('commentAuthor').value.trim();
+        const content = document.getElementById('commentContent').value.trim();
+        const btn = document.getElementById('commentSubmitBtn');
+        if(!author || !content) { alert('名前とコメントを入力してください'); return; }
+        btn.disabled = true;
+        btn.textContent = '送信中...';
+        try {
+            const res = await fetch('/api/comment', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ card_id: cardId, card_title: cardTitle, author, content })
+            });
+            if(!res.ok) throw new Error('送信失敗');
+            document.getElementById('commentContent').value = '';
+            await loadComments(cardId);
+        } catch(e) {
+            alert('コメントの送信に失敗しました');
+        } finally {
+            btn.disabled = false;
+            btn.textContent = 'コメントする';
+        }
+    }
+
     // ========== AI チャット ==========
-
-    // ポータルの知識ベース（システムプロンプトに注入する）
-    const PORTAL_CONTEXT = `
-あなたは「MARKET-IN Portal」の社内AIアシスタントです。
-このポータルは伊藤忠商事グループの社内共創プラットフォームで、顧客側の課題（Needs）と社内ソリューション（Seeds）をマッチングさせることを目的としています。
-
-【Needsの例】
-- 食品流通第一課×ヤオコー：インフレ環境下での構造的コスト削減（人件費・光熱費・出店コスト）
-- バロー商品部：遊休地・店舗駐車場の有効活用スキーム構築
-- バロー商品部×HR：新規出店エリアでの人材確保・新卒採用・定着強化
-- 食品流通第一課：人手不足・離職率への採用・教育・業務効率化ソリューション
-- 食品流通第一課×ヤオコー：海外展開・M&A・新業態開発の伴走支援
-
-【Seedsの例】
-- エネルギーチーム：店舗向け省エネ診断＋設備更新ワンストップパッケージ
-- HRチーム：小売向け採用〜定着支援プラットフォーム
-- リテールDXチーム：業務タイムスタディ＋省人化提案サービス
-- 不動産・住生活カンパニー：店舗駐車場・遊休地の複合活用モデル
-- リテールメディアチーム：リテールメディア×メーカー共同プロモーション
-
-【ポータルの使い方】
-- TOPページでNeeds/Seedsをキーワード・部署・種別で検索・絞り込みできる
-- 投稿ボタンから自分のNeeds/Seedsを投稿できる
-- 各カードをクリックすると詳細モーダルが開く
-- STORIESセクションで出向者インタビューや成功事例を確認できる
-
-日本語で、親切・簡潔に答えてください。社内の同僚に話すような自然な口調でOKです。
-`;
+    const PORTAL_CONTEXT = `あなたは「MARKET-IN Portal」の社内AIアシスタントです。このポータルは伊藤忠商事グループの社内共創プラットフォームで、顧客側の課題（Needs）と社内ソリューション（Seeds）をマッチングさせることを目的としています。日本語で、親切・簡潔に答えてください。社内の同僚に話すような自然な口調でOKです。`;
 
     let chatHistory = [];
-    let apiKey = '';
-    let isChatActive = true; // Vercel経由で常に有効
-
-    function activateChat() {
-        const input = document.getElementById('apiKeyInput');
-        const key = input.value.trim();
-        if(!key || !key.startsWith('sk-')) {
-            alert('有効なOpenAI APIキーを入力してください（sk-で始まる形式）');
-            return;
-        }
-        apiKey = key;
-        isChatActive = true;
-        input.value = '••••••••••••••••';
-        input.disabled = true;
-        document.getElementById('apiKeyArea').innerHTML = `
-            <div class="flex items-center gap-2">
-                <i class="fa-solid fa-circle-check text-emerald-400 text-sm"></i>
-                <span class="text-emerald-300 text-xs font-semibold">APIキー認証済み — チャットが有効になりました</span>
-            </div>`;
-        addAIMessage('APIキーの認証が完了しました！何でも聞いてください 😊');
-    }
 
     async function sendChatMessage() {
         const input = document.getElementById('chatInput');
@@ -1084,116 +641,51 @@
         if(!text) return;
         input.value = '';
         input.style.height = 'auto';
-
         addUserMessage(text);
         chatHistory.push({ role: 'user', content: text });
-
         showTyping();
         document.getElementById('chatSendBtn').disabled = true;
-
         try {
-            const response = await fetch('https://api.openai.com/v1/chat/completions', {
+            const response = await fetch('/api/chat', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${apiKey}`
-                },
-                body: JSON.stringify({
-                    model: 'gpt-4o-mini',
-                    messages: [
-                        { role: 'system', content: PORTAL_CONTEXT },
-                        ...chatHistory
-                    ],
-                    max_tokens: 600,
-                    temperature: 0.7
-                })
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ messages: [{ role: 'system', content: PORTAL_CONTEXT }, ...chatHistory] })
             });
-
-            if(!response.ok) {
-                const err = await response.json();
-                throw new Error(err.error?.message || 'APIエラー');
-            }
-
+            if(!response.ok) { const err = await response.json(); throw new Error(err.error?.message || 'APIエラー'); }
             const data = await response.json();
             const reply = data.choices[0].message.content;
             chatHistory.push({ role: 'assistant', content: reply });
             removeTyping();
             addAIMessage(reply);
-
         } catch(e) {
             removeTyping();
-            addAIMessage(`⚠️ エラーが発生しました：${e.message}\n\nAPIキーや通信状況をご確認ください。`);
+            addAIMessage(`⚠️ エラーが発生しました：${e.message}`);
         } finally {
             document.getElementById('chatSendBtn').disabled = false;
         }
     }
 
-    // APIキーなしのモックレスポンス
-    function addMockResponse(userText) {
-        const lower = userText.toLowerCase();
-        let reply = '';
-        if(lower.includes('needs') || lower.includes('投稿') || lower.includes('課題')) {
-            reply = '📝 Needsの投稿方法についてですね！\n\nTOPページの「Needsを投稿」ボタン（オレンジ色）をクリックすると投稿フォームが開きます。\n\n投稿の際は：\n・課題の背景と具体的な困りごと\n・求めているソリューションのイメージ\n・関連タグ\nを入力してください。';
-        } else if(lower.includes('seeds') || lower.includes('ソリューション') || lower.includes('提案')) {
-            reply = '🌱 Seeds（社内ソリューション）についてですね！\n\nSeedsは「伊藤忠グループが提供できる価値」のことです。\n\n現在登録されている主なSeedsは：\n・省エネ診断＋設備更新パッケージ（エネルギーチーム）\n・採用〜定着支援プラットフォーム（HRチーム）\n・業務タイムスタディ＋省人化提案（リテールDXチーム）\nなどがあります。';
-        } else if(lower.includes('バロー')) {
-            reply = '🏪 バロー関連のNeedsですね！\n\n現在、バローHD商品部から以下のNeedsが登録されています：\n\n① 遊休地・店舗駐車場の有効活用スキーム構築\n② 新規出店エリアでの人材確保・採用・定着強化\n③ 店頭アナログ業務の削減・省人化\n④ エリア別物流拠点の最適化\n\n詳細はNeedsボードのカードをクリックして確認できます。';
-        } else {
-            reply = '💡 ご質問ありがとうございます！\n\nMARKET-IN Portalについて、もう少し具体的に教えていただけますか？\n例：\n・「Needsの探し方を教えて」\n・「バロー関連の案件は？」\n・「Seedsを投稿したい」\n\nAPIキーを設定すると、より詳しい回答ができます！';
-        }
-        addAIMessage(reply);
-    }
-
-    function sendQuickQuestion(btn) {
-        document.getElementById('chatInput').value = btn.textContent;
-        sendChatMessage();
-    }
+    function sendQuickQuestion(btn) { document.getElementById('chatInput').value = btn.textContent; sendChatMessage(); }
 
     function addUserMessage(text) {
         const chat = document.getElementById('chatWindow');
-        chat.insertAdjacentHTML('beforeend', `
-            <div class="msg-user">
-                <div class="bubble">${escapeHtml(text).replace(/\n/g,'<br>')}</div>
-            </div>`);
+        chat.insertAdjacentHTML('beforeend', `<div class="msg-user"><div class="bubble">${escapeHtml(text).replace(/\n/g,'<br>')}</div></div>`);
         chat.scrollTop = chat.scrollHeight;
     }
-
     function addAIMessage(text) {
         const chat = document.getElementById('chatWindow');
-        chat.insertAdjacentHTML('beforeend', `
-            <div class="msg-ai">
-                <div class="avatar"><i class="fa-solid fa-robot text-xs"></i></div>
-                <div class="bubble">${escapeHtml(text).replace(/\n/g,'<br>')}</div>
-            </div>`);
+        chat.insertAdjacentHTML('beforeend', `<div class="msg-ai"><div class="avatar"><i class="fa-solid fa-robot text-xs"></i></div><div class="bubble">${escapeHtml(text).replace(/\n/g,'<br>')}</div></div>`);
         chat.scrollTop = chat.scrollHeight;
     }
-
     function showTyping() {
         const chat = document.getElementById('chatWindow');
-        chat.insertAdjacentHTML('beforeend', `
-            <div class="typing-indicator" id="typingIndicator">
-                <div class="avatar"><i class="fa-solid fa-robot text-xs"></i></div>
-                <div class="typing-dots"><span></span><span></span><span></span></div>
-            </div>`);
+        chat.insertAdjacentHTML('beforeend', `<div class="typing-indicator" id="typingIndicator"><div class="avatar"><i class="fa-solid fa-robot text-xs"></i></div><div class="typing-dots"><span></span><span></span><span></span></div></div>`);
         chat.scrollTop = chat.scrollHeight;
     }
-
-    function removeTyping() {
-        document.getElementById('typingIndicator')?.remove();
-    }
-
-    function escapeHtml(text) {
-        return text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-    }
-
-    function handleChatKeydown(e) {
-        if(e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendChatMessage(); }
-    }
-
-    function autoResizeTextarea(el) {
-        el.style.height = 'auto';
-        el.style.height = Math.min(el.scrollHeight, 100) + 'px';
-    }
+    function removeTyping() { document.getElementById('typingIndicator')?.remove(); }
+    function escapeHtml(text) { return text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+    function handleChatKeydown(e) { if(e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendChatMessage(); } }
+    function autoResizeTextarea(el) { el.style.height = 'auto'; el.style.height = Math.min(el.scrollHeight, 100) + 'px'; }
     </script>
 </body>
 </html>
