@@ -88,8 +88,8 @@
     <!-- TOPページ -->
     <div id="topPage" class="page active">
         <div class="max-w-7xl mx-auto px-6 py-8 w-full">
-            <div class="flex flex-col lg:flex-row gap-8 mb-4">
-                <div class="lg:w-[70%] sp-webpart">
+            <div class="flex flex-col lg:flex-row gap-6 mb-4">
+                <div class="lg:w-[55%] sp-webpart">
                     <div class="relative rounded-xl overflow-hidden shadow-sm h-[420px]">
                         <div id="heroCarouselFull" class="w-full h-full relative">
                             <div class="hero-slide-full absolute inset-0 cursor-pointer" onclick="showPage('aboutPage');">
@@ -146,7 +146,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="lg:w-[30%] flex flex-col gap-4">
+                <div class="lg:w-[20%] flex flex-col gap-4">
                     <div class="sp-webpart bg-white px-4 py-3 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-center">
                         <h3 class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-3">Select Action</h3>
                         <div class="space-y-2.5">
@@ -165,6 +165,53 @@
                     <div class="sp-webpart bg-white px-4 py-3 rounded-xl border border-slate-200 shadow-sm">
                         <div class="flex items-center gap-2 mb-2"><h3 class="text-[11px] font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1"><i class="fa-solid fa-hashtag text-slate-400"></i> Trending Tags</h3></div>
                         <div id="trendingTagsContainer" class="flex flex-wrap gap-1.5 text-xs"></div>
+                    </div>
+                </div>
+
+                <!-- 成功事例カラム -->
+                <div class="lg:w-[25%] flex flex-col">
+                    <div class="sp-webpart bg-white px-4 py-3 rounded-xl border border-slate-200 shadow-sm flex-1">
+                        <div class="flex items-center justify-between mb-3 border-b border-slate-100 pb-2">
+                            <h3 class="text-[11px] font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1">
+                                <i class="fa-regular fa-newspaper text-slate-400"></i> 成功事例
+                            </h3>
+                            <a href="#" class="text-[10px] text-blue-500 hover:underline" onclick="showPage('storiesListPage'); return false;">一覧 &gt;</a>
+                        </div>
+                        <div class="flex flex-col gap-3">
+                            <a href="#" onclick="showPage('storyFukumotoPage'); return false;"
+                               class="flex flex-col bg-white rounded-lg border border-slate-100 hover:border-slate-300 hover:shadow-sm transition overflow-hidden group">
+                                <div class="h-16 bg-slate-200 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1581546508260-4c8b1a53c0b0?auto=format&fit=crop&w=400" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                </div>
+                                <div class="p-2">
+                                    <div class="text-[9px] text-slate-400 mb-0.5">2026.02.01 | Needs</div>
+                                    <h4 class="font-bold text-slate-800 text-[11px] leading-snug group-hover:text-[#1e3a8a] line-clamp-2">ヤオコーで学んだ「危機感」と「打ち手」</h4>
+                                    <div class="mt-1 flex flex-wrap gap-1"><span class="tag">#インフレ</span></div>
+                                </div>
+                            </a>
+                            <a href="#" onclick="showPage('storyInariPage'); return false;"
+                               class="flex flex-col bg-white rounded-lg border border-slate-100 hover:border-slate-300 hover:shadow-sm transition overflow-hidden group">
+                                <div class="h-16 bg-slate-200 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1585386959984-a4155223f3f8?auto=format&fit=crop&w=400" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                </div>
+                                <div class="p-2">
+                                    <div class="text-[9px] text-slate-400 mb-0.5">2026.02.01 | Needs</div>
+                                    <h4 class="font-bold text-slate-800 text-[11px] leading-snug group-hover:text-[#1e3a8a] line-clamp-2">【出向者紹介】バロー現場からつなぐ、伊藤忠グループ横連携</h4>
+                                    <div class="mt-1 flex flex-wrap gap-1"><span class="tag">#バロー</span></div>
+                                </div>
+                            </a>
+                            <a href="#" onclick="showPage('storyAkimotoPage'); return false;"
+                               class="flex flex-col bg-white rounded-lg border border-slate-100 hover:border-slate-300 hover:shadow-sm transition overflow-hidden group">
+                                <div class="h-16 bg-slate-200 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=400" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                </div>
+                                <div class="p-2">
+                                    <div class="text-[9px] text-slate-400 mb-0.5">2026.02.01 | Needs</div>
+                                    <h4 class="font-bold text-slate-800 text-[11px] leading-snug group-hover:text-[#1e3a8a] line-clamp-2">ヤオコーの「中食づくりの現場」から、伊藤忠グループへの橋渡し</h4>
+                                    <div class="mt-1 flex flex-wrap gap-1"><span class="tag">#中食</span></div>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -211,39 +258,7 @@
                 </div>
             </div>
 
-            <!-- STORIES -->
-            <div class="sp-webpart bg-slate-100 rounded-xl p-6 mt-6">
-                <div class="flex items-end justify-between mb-4 border-b border-slate-300 pb-2">
-                    <div><h3 class="text-lg font-bold text-slate-800 flex items-center gap-2"><i class="fa-regular fa-newspaper text-slate-500"></i> STORIES</h3></div>
-                    <a href="#" class="text-sm text-slate-600 hover:text-slate-900" onclick="showPage('storiesListPage'); return false;">STORIES一覧 &gt;</a>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <a href="#" onclick="showPage('storyFukumotoPage'); return false;" class="flex flex-col bg-white rounded-lg shadow-sm hover:shadow-md transition overflow-hidden group">
-                        <div class="h-28 bg-slate-200 overflow-hidden"><img src="https://images.unsplash.com/photo-1581546508260-4c8b1a53c0b0?auto=format&fit=crop&w=400" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>
-                        <div class="p-3 flex-1 flex flex-col">
-                            <div class="text-[10px] text-slate-400 mb-1">2026.02.01 | Needs STORY</div>
-                            <h4 class="font-bold text-slate-800 text-sm mb-1 leading-snug group-hover:text-[#1e3a8a] group-hover:underline">ヤオコーで学んだ「危機感」と「打ち手」</h4>
-                            <div class="mt-auto flex flex-wrap gap-1"><span class="tag">#インフレ</span><span class="tag">#構造コスト</span></div>
-                        </div>
-                    </a>
-                    <a href="#" onclick="showPage('storyInariPage'); return false;" class="flex flex-col bg-white rounded-lg shadow-sm hover:shadow-md transition overflow-hidden group">
-                        <div class="h-28 bg-slate-200 overflow-hidden"><img src="https://images.unsplash.com/photo-1585386959984-a4155223f3f8?auto=format&fit=crop&w=400" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>
-                        <div class="p-3 flex-1 flex flex-col">
-                            <div class="text-[10px] text-slate-400 mb-1">2026.02.01 | Needs STORY</div>
-                            <h4 class="font-bold text-slate-800 text-sm mb-1 leading-snug group-hover:text-[#1e3a8a] group-hover:underline">【出向者紹介】バロー現場からつなぐ、伊藤忠グループ横連携</h4>
-                            <div class="mt-auto flex flex-wrap gap-1"><span class="tag">#バロー</span></div>
-                        </div>
-                    </a>
-                    <a href="#" onclick="showPage('storyAkimotoPage'); return false;" class="flex flex-col bg-white rounded-lg shadow-sm hover:shadow-md transition overflow-hidden group">
-                        <div class="h-28 bg-slate-200 overflow-hidden"><img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=400" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>
-                        <div class="p-3 flex-1 flex flex-col">
-                            <div class="text-[10px] text-slate-400 mb-1">2026.02.01 | Needs STORY</div>
-                            <h4 class="font-bold text-slate-800 text-sm mb-1 leading-snug group-hover:text-[#1e3a8a] group-hover:underline">ヤオコーの「中食づくりの現場」から、伊藤忠グループへの橋渡し</h4>
-                            <div class="mt-auto flex flex-wrap gap-1"><span class="tag">#中食</span></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            <!-- STORIESセクションは右カラムに移動済み -->
 
             <!-- AI アシスタント -->
             <div id="aiChatSection" class="sp-webpart rounded-2xl p-6 md:p-8 mt-6">
